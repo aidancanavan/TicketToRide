@@ -1,0 +1,71 @@
+Objects needed
+
+
+
+Card
+-image
+
+	-Transportation Card
+		Color
+	-Destination Ticket Card
+		Point A
+		Point B
+		Value
+
+Player
+-player value(player 1,2,3, or 4)
+-token number
+-List of Transportation Cards
+-List of Destination Ticket Cards
+
+Deck
+-Stack of Cards
+-Stack of Discards
+:methods
+	shuffle
+	shuffleWithDiscards
+	length
+	draw
+	discard
+	shuffle
+
+Board
+-Deck of Cards(Transportation Card)
+-Deck of Cards(Destination Ticket Card)
+-List of Face Up cards (length 5)
+-GameGraph 
+
+GameGraph
+	Node
+	-City Name
+	-Boolean isTouristDest
+	-List of PathWays
+
+	PathWay
+	-Length
+	-Color
+	-End Node
+	-boolean isTaken
+
+Game
+-number Of Players
+-Board
+-List of Players
+-Player whosTurn
+
+:method
+	-CountPounts
+	-CheckWinCondition
+
+	-Turn
+		pick a type of turn(if you can)
+
+
+
+
+
+
+
+
+
+
