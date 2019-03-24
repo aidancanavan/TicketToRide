@@ -40,6 +40,7 @@ GameGraph
 	-City Name
 	-Boolean isTouristDest
 	-List of PathWays
+	-Coordinate Location of the city
 
 	PathWay
 	-Length
