@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\n\ Card\ object\ for\ ticketToRide\n\n\ @author\ Paul\ Macfarlane\n\ @version\ 1.0\n
+comment1.params=
+comment1.target=void\ turnFaceUp()
+comment1.text=\n\ Turns\ a\ card\ faceUp\n
+comment2.params=
+comment2.target=void\ turnFaceDown()
+comment2.text=\n\ Turns\ a\ card\ faceDown\n
+numComments=3

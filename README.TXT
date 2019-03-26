@@ -1,0 +1,1 @@
+This should tell the user how to play the game (use rules from images folder)

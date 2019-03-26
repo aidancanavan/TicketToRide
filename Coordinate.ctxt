@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Coordinate
+comment0.text=\n\ Coordinate\ object\ for\ location\n\n\ @author\ Paul\ Macfarlane\n\ @version\ 1.0\n
+comment1.params=inX\ inY
+comment1.target=Coordinate(double,\ double)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Coordinate\n\ @param\ inX\ The\ x\ coordinate\n\ @param\ inY\ The\ y\ coordinate\n
+numComments=2

@@ -1,0 +1,25 @@
+import java.awt.Color;
+/**
+ * Transportation card for ticket to ride. Called "trans"
+ * card because frankly we need to minimize variable
+ * name length as much as possible
+ *
+ * @author Paul Macfarlane
+ * @version 1.0
+ */
+//////////////////////////////////////////////////////////////////////////////////////////
+public class TransCard extends Card
+{
+    //these are protected so they can accessed anywhere in package or subclass
+    protected Color color; //COLORS: BLUE, GREEN, BLACK, PINK, RED, ORANGE, CYAN(RAINBOW)
+    protected boolean isFaceUp; 
+
+    /**
+     * Constructor for objects of class TransCard
+     * @param color of the card
+     */
+    public TransCard(Color c){
+        color = c;
+    }   
+    
+}
