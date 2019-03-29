@@ -15,11 +15,9 @@ public class Deck
     protected ArrayList<Card> cards;
     protected ArrayList<Card> discards;
 
-    /**
-     * Constructor for objects of class Deck
-     */
-    public Deck(){
-
+    public Deck(ArrayList<Card> c, ArrayList<Card> d){
+        cards = c;
+        discards = d;
     }
 
     /**
@@ -66,10 +64,12 @@ public class Deck
         target.cards.add(dtc);//adds the card to the bottom (end)
         // of the target deck (will always be the main deck for dtcs)
     }
+    
+    
+    public void discard(TransCard tc,Deck target){//this is different for each type of deck                       
+            Card temp = this.cards.remove((this.cards.indexOf(tc)));
+            target.discards.add(0,tc); //adds card to top of discard deck
 
-    public void discard(TransCard tc,Deck target){//this is different for each type of deck
-        Card temp = this.cards.remove((this.cards.indexOf(tc)));
-        target.discards.add(0,tc); //adds card to top of discard deck
+        }
     }
 
-}

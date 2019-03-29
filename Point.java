@@ -12,7 +12,8 @@ public class Point
     protected Boolean isTourDest; //whether or not it is a tourist dest
     protected ArrayList<Pathway> paths; //list of PathWays
     protected Coordinate xy;
-
+    public Point(){}
+    
     /**
      * Constructor for objects of class Point
      * @param inName Name of location

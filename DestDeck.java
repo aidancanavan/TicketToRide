@@ -1,4 +1,5 @@
 import java.util.Deque;
+import java.util.ArrayList;
 /**
  * Represents a deck of Destination Ticket Objects
  *
@@ -8,11 +9,6 @@ import java.util.Deque;
 //////////////////////////////////////////////////////////////////////////////////////////
 public class DestDeck extends Deck
 {
-    /**
-     * Constructor for objects of class DestDeck
-     */
-    public DestDeck()    {
-        discards = null; //no deck for the discards of desitination tickets
-    }    
+       
   
 }

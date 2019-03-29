@@ -9,11 +9,6 @@ import java.util.Deque;
 public class TransDeck extends Deck
 {
 
-    /**
-     * Constructor for objects of class TransDeck
-     */ 
-    public TransDeck() {
-          
-    }
+  
    
 }
