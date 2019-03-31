@@ -1,36 +1,21 @@
+import java.util.ArrayList;
 import java.awt.Color;
 /**
- * Object equivalent to Route in ticket to ride
+ * Write a description of class TakenPathway here.
  *
- * @author Paul Macfarlane
- * @version 1.0
+ * @author (your name)
+ * @version (a version number or a date)
  */
 public class Pathway
 {
-   
-    protected int length; //length of pathway
-    protected Color color; //color of pathwat
-    protected Point start; //start of path
-    protected Point end; //end of path
-    protected boolean isTaken = false; 
+    public Color c;
+    public Node end;
+    public int length;
+    //public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
+    public Pathway(Color c,Node end, int length){
+    this.c = c;
+    this.end = end;
+    this.length = length;
     
-
-    /**
-     * Constructor for objects of class Pathway
-     */
-    public Pathway(int len, Color col, Point st, Point e)
-    {
-        length = len;
-        color = col;
-        start = st;
-        end = e;
     }
-    
-    /**
-     * Set a Pathway to be taken (unuseable)
-     */
-    public void setTaken(){
-        isTaken = true;
-    }
-
 }

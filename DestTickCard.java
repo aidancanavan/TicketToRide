@@ -8,8 +8,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 public class DestTickCard extends Card
 {
-    protected Point a;
-    protected Point b;
+    protected Node a;
+    protected Node b;
     int value;
 
     /**
@@ -18,7 +18,7 @@ public class DestTickCard extends Card
      * @param B Other point on card
      * @param value Value of dest ticket card
      */
-    public DestTickCard(Point A, Point B, int val){
+    public DestTickCard(Node A, Node B, int val){
         a = A;
         b = B;
         value = val;

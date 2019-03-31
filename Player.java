@@ -1,34 +1,21 @@
-package TicketToRide;
-
 import java.awt.Color;
+import java.util.ArrayList;
 /**
- 
+ * Write a description of class Player here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public enum Player{
+public class Player
+{
+    int value;//one two or three
+    String name;//maybe we implement adding a name
+    Color myColor;//players color
+    public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
+    public Player(String name, int value, Color c){
+    this.name = name;
+    this.value = value;
+    myColor = c;
     
-    /**
-     * This enum represents the five players with each player
-     * being assigned one color. 
-    
-     */
-
-
-    Player1(Color.MAGENTA),
-
-    Player2(Color.YELLOW),
-
-    Player3(Color.BLUE),
-
-    Player4(Color.WHITE);
-
-    
-
-    public Color playerColor;
-    Player(Color playerColor){
-        this.playerColor = playerColor;
     }
-
 }

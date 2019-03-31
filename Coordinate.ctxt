@@ -1,7 +1,15 @@
 #BlueJ class context
 comment0.target=Coordinate
-comment0.text=\n\ Coordinate\ object\ for\ location\n\n\ @author\ Paul\ Macfarlane\n\ @version\ 1.0\n
+comment0.text=\r\n\ Coordinate\ object\ for\ location\r\n\r\n\ @author\ Paul\ Macfarlane\r\n\ @version\ 1.0\r\n
 comment1.params=inX\ inY
 comment1.target=Coordinate(double,\ double)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Coordinate\n\ @param\ inX\ The\ x\ coordinate\n\ @param\ inY\ The\ y\ coordinate\n
-numComments=2
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Coordinate\r\n\ @param\ inX\ The\ x\ coordinate\r\n\ @param\ inY\ The\ y\ coordinate\r\n
+comment2.params=
+comment2.target=double\ getX()
+comment3.params=
+comment3.target=double\ setX()
+comment4.params=d
+comment4.target=void\ setX(double)
+comment5.params=d
+comment5.target=void\ setY(double)
+numComments=6
