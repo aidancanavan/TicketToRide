@@ -12,6 +12,8 @@ public class Player
     String name;//maybe we implement adding a name
     Color myColor;//players color
     public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
+    public ArrayList<TransportationCard> hand = new ArrayList<TransportationCard>();
+    public ArrayList<DestTickCard> myDestCards = new ArrayList<DestTickCard>();
     public Player(String name, int value, Color c){
     this.name = name;
     this.value = value;

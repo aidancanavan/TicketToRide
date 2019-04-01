@@ -8,12 +8,12 @@ import java.awt.Color;
  */
 public class Pathway
 {
-    public Color c;
+    public Color color;
     public Node end;
     public int length;
     //public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
     public Pathway(Color c,Node end, int length){
-    this.c = c;
+    this.color = c;
     this.end = end;
     this.length = length;
     
