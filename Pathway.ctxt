@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=Pathway
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ TakenPathway\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=c\ end\ length
-comment1.target=Pathway(java.awt.Color,\ Node,\ int)
-numComments=2
+comment1.params=c\ start\ end\ length
+comment1.target=Pathway(java.awt.Color,\ Node,\ Node,\ int)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

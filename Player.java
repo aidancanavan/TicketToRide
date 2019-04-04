@@ -11,6 +11,7 @@ public class Player
     int value;//one two or three
     String name;//maybe we implement adding a name
     Color myColor;//players color
+    int tokens = 20;
     public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
     public ArrayList<TransportationCard> hand = new ArrayList<TransportationCard>();
     public ArrayList<DestTickCard> myDestCards = new ArrayList<DestTickCard>();

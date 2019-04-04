@@ -36,6 +36,9 @@ public class Deck
     }
 
     public Card draw(){
+        if(cards.size() ==0 ){
+            shuffleWithDiscards();
+        }
         Card temp = cards.remove(cards.size()-1);
         return temp;
     }

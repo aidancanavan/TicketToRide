@@ -11,6 +11,8 @@ public class DestTickCard extends Card
     protected Node a;
     protected Node b;
     int value;
+    public String imagePath;
+    
 
     /**
      * Constructor for objects of class DestTickCard
@@ -18,10 +20,12 @@ public class DestTickCard extends Card
      * @param B Other point on card
      * @param value Value of dest ticket card
      */
-    public DestTickCard(Node A, Node B, int val){
+    public DestTickCard(Node A, Node B, int val,String imagePath){
         a = A;
         b = B;
         value = val;
+        this.imagePath = imagePath;
+        
     }
 
     

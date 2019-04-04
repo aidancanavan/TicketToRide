@@ -11,7 +11,7 @@ import java.awt.Color;
 public class TransportationCard extends Card
 {
     //these are protected so they can accessed anywhere in package or subclass
-    protected Color color; //COLORS: BLUE, GREEN, BLACK, PINK, RED, ORANGE, CYAN(RAINBOW)
+    protected Color color; //COLORS: BLUE, GREEN, BLACK, PINK, RED, ORANGE, null(RAINBOW)
     protected boolean isFaceUp; 
     public String imagePath;
 

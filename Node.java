@@ -28,6 +28,16 @@ public class Node
         this.Xpos = Xpos;
         this.Ypos = Ypos;
     }
+    public String toString(){
+        
+        String output ="City: "+name;
+        
+        for(Pathway p: destinations){
+            output+=p.toString()+"\n";
+        }
+        return output;
+        
+    }
 
     
 }
