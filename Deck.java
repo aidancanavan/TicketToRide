@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class Deck
 {
 
-    protected ArrayList<Card> cards;
-    protected ArrayList<Card> discards;
+    protected ArrayList<Card> cards = new ArrayList<Card>();
+    protected ArrayList<Card> discards = new ArrayList<Card>();
 
     /**
      * Constructor for objects of class Deck
@@ -28,11 +28,11 @@ public class Deck
     }
 
     public void shuffleWithDiscards(){
-        while (!discards.isEmpty()){
-            Card temp = discards.remove(cards.size()-1);
-            cards.add(temp);
-        }
+        cards.addAll(discards);
+        discards.clear();
         Collections.shuffle(cards);
+        
+        
     }
 
     public Card draw(){
