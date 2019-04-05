@@ -21,6 +21,17 @@ public class Coordinate
         x = inX;
         y = inY;
     }
-
+    public double getX(){
+        return x;
+    }
+    public double setX(){
+        return y;
+    }
+    public void setX(double d){
+        x = d;
+    }
+    public void setY(double d){
+        y = d;
+    }
     
 }

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=TransportationCard
+comment0.text=\r\n\ Transportation\ card\ for\ ticket\ to\ ride.\ Called\ "trans"\r\n\ card\ because\ frankly\ we\ need\ to\ minimize\ variable\r\n\ name\ length\ as\ much\ as\ possible\r\n\r\n\ @author\ Paul\ Macfarlane\r\n\ @version\ 1.0\r\n
+comment1.params=c\ imagePath
+comment1.target=TransportationCard(java.awt.Color,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ TransCard\r\n\ @param\ color\ of\ the\ card\r\n
+numComments=2

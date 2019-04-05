@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=DestTickCard
-comment0.text=\n\ Destination\ Ticket\ for\ for\ Ticket\ to\ Ride,\ \ \n\n\ @author\ Paul\ Macfarlane\n\ @version\ 1.0\n
-comment1.params=A\ B\ val
-comment1.target=DestTickCard(Point,\ Point,\ int)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ DestTickCard\n\ @param\ A\ One\ point\ on\ card\n\ @param\ B\ Other\ point\ on\ card\n\ @param\ value\ Value\ of\ dest\ ticket\ card\n
+comment0.text=\r\n\ Destination\ Ticket\ for\ for\ Ticket\ to\ Ride,\ \ \r\n\r\n\ @author\ Paul\ Macfarlane\r\n\ @version\ 1.0\r\n
+comment1.params=A\ B\ val\ imagePath
+comment1.target=DestTickCard(Node,\ Node,\ int,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DestTickCard\r\n\ @param\ A\ One\ point\ on\ card\r\n\ @param\ B\ Other\ point\ on\ card\r\n\ @param\ value\ Value\ of\ dest\ ticket\ card\r\n
 numComments=2

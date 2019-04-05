@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Board
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Board\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=numPlayers
+comment1.target=Board(int)
+comment2.params=turn\ inputCards\ locationStart\ locationEnd
+comment2.target=boolean\ checkPathwayAvailability(Player,\ java.util.ArrayList,\ int,\ int)
+comment3.params=
+comment3.target=void\ initializeAllCards()
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

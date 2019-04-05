@@ -6,7 +6,7 @@
  * @version 1.0
  */
 //////////////////////////////////////////////////////////////////////////////////////////
-public class Card
+public  class Card <Abstract>
 {
     //there should be an instance variable for some sort of image
     //but right now not sure what type of object that would be 

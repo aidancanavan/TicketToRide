@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Node
+comment0.text=\r\n\ Holds\ a\ destination\ object\r\n\r\n\ @author\ Paul\ Macfarlane\r\n\ @version\ 1.0\r\n
+comment1.params=inName\ isTD\ Xpos\ Ypos
+comment1.target=Node(java.lang.String,\ boolean,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Point\r\n\ @param\ inName\ Name\ of\ location\r\n\ @param\ isTD\ whether\ or\ not\ it\ is\ a\ tourist\ dest\r\n\ @param\ paths\ List\ of\ Pathways\ from\ point\r\n\ @param\ inC\ Coordinates\ of\ point\r\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

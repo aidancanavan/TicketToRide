@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Deck
+comment0.text=\r\n\ The\ full\ deck\ of\ transportation\ cards,\ with\ a\ list\ \r\n\ keeping\ track\ of\ cards\ in\ the\ deck,\ and\ another\ with\r\n\ with\ cards\ that\ have\ been\ discarded\r\n\r\n\ @author\ Paul\ Macfarlane\r\n\ @version\ 1.0\r\n
+comment1.params=
+comment1.target=Deck()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Deck\r\n
+comment2.params=
+comment2.target=void\ shuffleDeck()
+comment3.params=
+comment3.target=void\ shuffleWithDiscards()
+comment4.params=
+comment4.target=Card\ draw()
+comment5.params=c
+comment5.target=void\ discard(Card)
+numComments=6
