@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class Deck
 {
 
-    protected ArrayList<Card> cards = new ArrayList<Card>();
-    protected ArrayList<Card> discards = new ArrayList<Card>();
+    public ArrayList<Card> cards = new ArrayList<Card>();
+    public ArrayList<Card> discards = new ArrayList<Card>();
 
     /**
      * Constructor for objects of class Deck

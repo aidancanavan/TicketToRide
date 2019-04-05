@@ -27,6 +27,11 @@ public class DestTickCard extends Card
         this.imagePath = imagePath;
         
     }
+    public String toString(){
+    return a.name +" to "+b.name+": "+value+" Path: "+imagePath;
+    
+    
+    }
 
     
 }

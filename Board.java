@@ -268,11 +268,41 @@ public class Board
         destDeck.discard(c);
         c = new DestTickCard(map.get(5),map.get(8),3,"./DESTCARDS/3.jpg");
         destDeck.discard(c);
+        c = new DestTickCard(map.get(2),map.get(1),3,"./DESTCARDS/4.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(7),map.get(12),4,"./DESTCARDS/5.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(1),map.get(7),4,"./DESTCARDS/6.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(10),map.get(9),4,"./DESTCARDS/7.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(9),map.get(3),4,"./DESTCARDS/8.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(6),map.get(1),5,"./DESTCARDS/9.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(6),map.get(13),6,"./DESTCARDS/10.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(10),map.get(3),6,"./DESTCARDS/11.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(8),map.get(0),6,"./DESTCARDS/12.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(5),map.get(14),7,"./DESTCARDS/13.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(1),map.get(12),8,"./DESTCARDS/14.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(14),map.get(6),8,"./DESTCARDS/15.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(14),map.get(3),8,"./DESTCARDS/16.jpg");
+        destDeck.discard(c);
+        c = new DestTickCard(map.get(13),map.get(4),8,"./DESTCARDS/17.jpg");
+        destDeck.discard(c);
         
         
         
         destDeck.shuffleWithDiscards();
-        
+        for(Card g: destDeck.cards){
+            System.out.println((DestTickCard)g);
+        }
     }
     public static void main(String args[]){
     //some tests
@@ -280,5 +310,7 @@ public class Board
     for(Node n:b.map){
         System.out.println(n);
     }
+    
+    
     }
 }

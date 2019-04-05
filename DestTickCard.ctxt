@@ -4,4 +4,6 @@ comment0.text=\r\n\ Destination\ Ticket\ for\ for\ Ticket\ to\ Ride,\ \ \r\n\r\n
 comment1.params=A\ B\ val\ imagePath
 comment1.target=DestTickCard(Node,\ Node,\ int,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DestTickCard\r\n\ @param\ A\ One\ point\ on\ card\r\n\ @param\ B\ Other\ point\ on\ card\r\n\ @param\ value\ Value\ of\ dest\ ticket\ card\r\n
-numComments=2
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3
