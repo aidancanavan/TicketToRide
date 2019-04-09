@@ -18,12 +18,17 @@ import java.awt.event.*;
  */
 public class TestGUI extends JPanel implements MouseListener {
     public void mouseEntered( MouseEvent e ) { }
+
     public void mouseExited( MouseEvent e ) { }
+
     public void mousePressed( MouseEvent e ) { }
+
     public void mouseReleased( MouseEvent e ) { }
+
     public void mouseClicked( MouseEvent e ) {
         System.out.println("You clicked!!");
     }
+
     public static void main(String[] args) {
         JFrame f = new JFrame();
         try {
@@ -36,7 +41,6 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton lincolnCenter = new JButton();
         lincolnCenter.setBounds(117,42, 20,20);
         lincolnCenter.setBackground(Color.RED);
-        
 
         JButton centralPark = new JButton();
         centralPark.setBounds(303,30, 20,20);
@@ -89,13 +93,26 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton wallStreet = new JButton();
         wallStreet.setBounds(330,918, 20,20);
         wallStreet.setBackground(Color.BLUE);
-        
+
         JButton brooklyn = new JButton();
         brooklyn.setBounds(590,940, 20,20);
         brooklyn.setBackground(Color.YELLOW);
 
-        
-        //add all buttons
+        //creating pathbuttons
+        JButton linc_Mid = new JButton();
+        linc_Mid.setBounds(95,70,35,135);
+        linc_Mid.setOpaque(false);
+        // linc_Mid.setBorderPainted(false);
+        linc_Mid.setContentAreaFilled(false);
+        linc_Mid.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Mid Route");
+
+                }
+            });
+
+        //add all  dest buttons
         f.add(lincolnCenter);
         f.add(centralPark);
         f.add(midtownWest);
@@ -111,10 +128,10 @@ public class TestGUI extends JPanel implements MouseListener {
         f.add(lowerEast);
         f.add(wallStreet);
         f.add(brooklyn);
-        
-        
-        
-        
+
+        // add all path buttons
+        f.add(linc_Mid);
+
         f.pack();
         f.setVisible(true);
     }
