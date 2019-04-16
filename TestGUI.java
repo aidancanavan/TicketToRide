@@ -216,7 +216,33 @@ public class TestGUI extends JPanel implements MouseListener {
 
                 }
             });
+        
+        JButton linc_Cen = new JButton();
+        linc_Cen.setBounds(150,25,145,35);
+        linc_Cen.setOpaque(false);
+        // linc_Cen.setBorderPainted(false);
+        linc_Cen.setContentAreaFilled(false);
+        linc_Cen.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Cen Route");
 
+                }
+            });
+            
+        JButton times_Nations = new JButton();
+        times_Nations.setBounds(290,185,145,35);
+        times_Nations.setOpaque(false);
+        times_Nations.setContentAreaFilled(false);
+        times_Nations.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Times_Nation Route");
+
+                }
+            });
+            
+            
         //add all  dest buttons
         f.add(lincolnCenter);
         f.add(centralPark);
@@ -236,6 +262,8 @@ public class TestGUI extends JPanel implements MouseListener {
 
         // add all path buttons
         f.add(linc_Mid);
+        f.add(linc_Cen);
+        f.add(times_Nations);
 
         f.pack();
         f.setVisible(true);
