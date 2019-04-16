@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 /**
  * class used to test and build the board GUI for TTR
@@ -17,6 +18,8 @@ import java.awt.event.*;
  * version(1.0)
  */
 public class TestGUI extends JPanel implements MouseListener {
+    public ArrayList<JButton> points= new ArrayList<>();
+
     public void mouseEntered( MouseEvent e ) { }
 
     public void mouseExited( MouseEvent e ) { }
@@ -26,26 +29,32 @@ public class TestGUI extends JPanel implements MouseListener {
     public void mouseReleased( MouseEvent e ) { }
 
     public void mouseClicked( MouseEvent e ) {
-        
+
     }
 
-    public static void main(String[] args) {
+    public TestGUI(){
         JFrame f = new JFrame();
         try {
             f.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("theMap.jpg")))));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //buttongroup contructions
+        f.setResizable(false);
+        
+        
         //creating buttons to coorespond with each location on game board
         JButton lincolnCenter = new JButton();
         lincolnCenter.setBounds(115,30, 30,30);
-        lincolnCenter.setOpaque(true);
-        lincolnCenter.setContentAreaFilled(true);
+        lincolnCenter.setOpaque(false);
+        lincolnCenter.setContentAreaFilled(false);
         lincolnCenter.setBorderPainted(false);
         lincolnCenter.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
+                    //add node numbers to return
+                    //add handling for path selection
+
                     JOptionPane.showMessageDialog(null,"You've Selected Lincoln Center");
 
                 }
@@ -221,43 +230,43 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         //creating pathbuttons
-        JButton linc_Mid = new JButton();
-        linc_Mid.setBounds(95,70,35,135);
-        linc_Mid.setOpaque(true);;
-        linc_Mid.setBorderPainted(false);
-        linc_Mid.setContentAreaFilled(true);
-        linc_Mid.addMouseListener(new MouseAdapter(){
-                public void mouseClicked(MouseEvent e)
-                {
-                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Mid Route");
+        // JButton linc_Mid = new JButton();
+        // linc_Mid.setBounds(95,70,35,135);
+        // linc_Mid.setOpaque(true);;
+        // linc_Mid.setBorderPainted(false);
+        // linc_Mid.setContentAreaFilled(true);
+        // linc_Mid.addMouseListener(new MouseAdapter(){
+        // public void mouseClicked(MouseEvent e)
+        // {
+        // JOptionPane.showMessageDialog(null,"You've Selected the Linc-Mid Route");
 
-                }
-            });
+        // }
+        // });
 
-        JButton linc_Cen = new JButton();
-        linc_Cen.setBounds(152,20,140,30);
-        linc_Cen.setOpaque(true);;
-        linc_Cen.setBorderPainted(false);
-        linc_Cen.setContentAreaFilled(true);
-        linc_Cen.addMouseListener(new MouseAdapter(){
-                public void mouseClicked(MouseEvent e)
-                {
-                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Cen Route");
+        // JButton linc_Cen = new JButton();
+        // linc_Cen.setBounds(152,20,140,30);
+        // linc_Cen.setOpaque(true);;
+        // linc_Cen.setBorderPainted(false);
+        // linc_Cen.setContentAreaFilled(true);
+        // linc_Cen.addMouseListener(new MouseAdapter(){
+        // public void mouseClicked(MouseEvent e)
+        // {
+        // JOptionPane.showMessageDialog(null,"You've Selected the Linc-Cen Route");
 
-                }
-            });
+        // }
+        // });
 
-        JButton times_Nations = new JButton();
-        times_Nations.setBounds(290,185,145,35);
-        times_Nations.setOpaque(true);;
-        times_Nations.setContentAreaFilled(true);
-        times_Nations.addMouseListener(new MouseAdapter(){
-                public void mouseClicked(MouseEvent e)
-                {
-                    JOptionPane.showMessageDialog(null,"You've Selected the Times_Nation Route");
+        // JButton times_Nations = new JButton();
+        // times_Nations.setBounds(290,185,145,35);
+        // times_Nations.setOpaque(true);;
+        // times_Nations.setContentAreaFilled(true);
+        // times_Nations.addMouseListener(new MouseAdapter(){
+        // public void mouseClicked(MouseEvent e)
+        // {
+        // JOptionPane.showMessageDialog(null,"You've Selected the Times_Nation Route");
 
-                }
-            });
+        // }
+        // });
 
         //add all  dest buttons
         f.add(lincolnCenter);
@@ -276,13 +285,68 @@ public class TestGUI extends JPanel implements MouseListener {
         f.add(wallStreet);
         f.add(brooklyn);
 
+        //add all buttons to group
+        points.add(lincolnCenter);
+        points.add(centralPark);
+        points.add(midtownWest);
+        points.add(timesSquare);
+        points.add(unitedNations);
+        points.add(empireState);
+        points.add(chelsea);
+        points.add(gramercyPark);
+        points.add(greenwichVillage);
+        points.add(eastVillage);
+        points.add(soho);
+        points.add(chinaTown);
+        points.add(lowerEast);
+        points.add(wallStreet);
+        points.add(brooklyn);
+
         // add all path buttons
-        f.add(linc_Mid);
-        f.add(linc_Cen);
-        f.add(times_Nations);
+        // f.add(linc_Mid);
+        // f.add(linc_Cen);
+        // f.add(times_Nations);
 
         f.pack();
         f.setVisible(true);
+    }
+    
+    public void setButtonsVisible(){
+    for(JButton b :points){
+        b.setOpaque(true);
+        b.setContentAreaFilled(true);
+        b.setBorderPainted(true);
+    }
+    }
+    
+    public void setButtonsInvisible(){
+    for(JButton b :points){
+        b.setOpaque(false);
+        b.setContentAreaFilled(false);
+        b.setBorderPainted(false);
+    }
+    }
+    
+    public void setButtonsEnabled(){
+    for(JButton b :points){
+        b.setEnabled(true);
+    }
+    }
+    
+    public void setButtonsDisabled(){
+    for(JButton b :points){
+        b.setEnabled(false);
+    }
+    }
+    
+    public static void main(String[] args){
+    TestGUI board = new TestGUI();
+    board.setButtonsInvisible();
+    // board.setButtonsEnabled();
+    
+    
+    
+    
     }
 
 }
