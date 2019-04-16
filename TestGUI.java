@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.*;
 
 /**
  * class used to test and build the board GUI for TTR
@@ -23,6 +26,12 @@ public class TestGUI extends JPanel implements MouseListener {
     public int secondSelection = -1;
     public Board myBoard = new Board(4);
     public int playersTurn=0;
+    public ArrayList<TransportationCard> input = new ArrayList<TransportationCard>();
+    public int x1;
+    public int y1;
+    public int x2;
+    public int y2;
+    JFrame f = new JFrame();
     public void mouseEntered( MouseEvent e ) { }
 
     public void mouseExited( MouseEvent e ) { }
@@ -34,6 +43,7 @@ public class TestGUI extends JPanel implements MouseListener {
     public void mouseClicked( MouseEvent e ) {
 
     }
+
     public void switchTurn(){
         if(playersTurn == myBoard.players.size()-1){
             playersTurn =0;
@@ -42,8 +52,9 @@ public class TestGUI extends JPanel implements MouseListener {
             playersTurn++;
         }
     }
+
     public TestGUI(){
-        JFrame f = new JFrame();
+        
         try {
             f.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("theMap.jpg")))));
         } catch (IOException e) {
@@ -51,8 +62,7 @@ public class TestGUI extends JPanel implements MouseListener {
         }
         //buttongroup contructions
         f.setResizable(false);
-        
-        
+
         //creating buttons to coorespond with each location on game board
         JButton lincolnCenter = new JButton();
         lincolnCenter.setBounds(115,30, 30,30);
@@ -320,17 +330,40 @@ public class TestGUI extends JPanel implements MouseListener {
         f.pack();
         f.setVisible(true);
     }
+
+    public void selectCard(){
+        //update input arrayList
+
+    }
+
     public void selection(int num){
         if(firstSelection != -1){
+            
             secondSelection = num;
             Player turn = myBoard.players.get(playersTurn);
-            ArrayList<TransportationCard> input = new ArrayList<TransportationCard>();//This needs to be inputted by user, selected
-            if(myBoard.checkPathwayAvailability(turn,input,firstSelection,secondSelection)){
-                
+            //This needs to be inputted by user, selected
+            if(1==1){//input.size() >1 && myBoard.checkPathwayAvailability(turn,input,firstSelection,secondSelection) ){
+                System.out.println(myBoard.map.get(firstSelection));
+                System.out.println(myBoard.map.get(secondSelection));
+                x1 = myBoard.map.get(firstSelection).Xpos;
+                y1 = myBoard.map.get(firstSelection).Ypos;
+                x2 = myBoard.map.get(secondSelection).Xpos;
+                y2 = myBoard.map.get(secondSelection).Ypos;
+                Container cp = f.getContentPane();
+                cp.add(new JComponent() {
+                        public void paintComponent(Graphics g) {
+                            System.out.println("Line Drawn");
+                            Graphics2D g2 = (Graphics2D) g;
+                            g2.setStroke(new BasicStroke(15));
+                            g2.setColor(turn.myColor);
+                            g2.draw(new Line2D.Float(x1, y1, x2, y2));
+                        }
+                    });
+                //f.repaint();
+                input.clear();
                 switchTurn();
             }
-            
-            
+
             firstSelection = -1;
             secondSelection = -1;
         }
@@ -338,43 +371,40 @@ public class TestGUI extends JPanel implements MouseListener {
             firstSelection = num;
         }
     }
-    
+
     public void setButtonsVisible(){
-    for(JButton b :points){
-        b.setOpaque(true);
-        b.setContentAreaFilled(true);
-        b.setBorderPainted(true);
-    }
-    }
-    
-    public void setButtonsInvisible(){
-    for(JButton b :points){
-        b.setOpaque(false);
-        b.setContentAreaFilled(false);
-        b.setBorderPainted(false);
-    }
-    }
-    
-    public void setButtonsEnabled(){
-    for(JButton b :points){
-        b.setEnabled(true);
-    }
-    }
-    
-    public void setButtonsDisabled(){
-    for(JButton b :points){
-        b.setEnabled(false);
-    }
-    }
-    
-    public static void main(String[] args){
-    TestGUI board = new TestGUI();
-    board.setButtonsInvisible();
-    // board.setButtonsEnabled();
-    
-    
-    
-    
+        for(JButton b :points){
+            b.setOpaque(true);
+            b.setContentAreaFilled(true);
+            b.setBorderPainted(true);
+        }
     }
 
+    public void setButtonsInvisible(){
+        for(JButton b :points){
+            b.setOpaque(false);
+            b.setContentAreaFilled(false);
+            b.setBorderPainted(false);
+        }
+    }
+
+    public void setButtonsEnabled(){
+        for(JButton b :points){
+            b.setEnabled(true);
+        }
+    }
+
+    public void setButtonsDisabled(){
+        for(JButton b :points){
+            b.setEnabled(false);
+        }
+    }
+
+    public static void main(String[] args){
+        TestGUI board = new TestGUI();
+        board.setButtonsInvisible();
+        // board.setButtonsEnabled();
+
+    
+    }
 }
