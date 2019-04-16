@@ -19,7 +19,10 @@ import java.util.*;
  */
 public class TestGUI extends JPanel implements MouseListener {
     public ArrayList<JButton> points= new ArrayList<>();
-
+    public int firstSelection = -1;
+    public int secondSelection = -1;
+    public Board myBoard = new Board(4);
+    public int playersTurn=0;
     public void mouseEntered( MouseEvent e ) { }
 
     public void mouseExited( MouseEvent e ) { }
@@ -31,7 +34,14 @@ public class TestGUI extends JPanel implements MouseListener {
     public void mouseClicked( MouseEvent e ) {
 
     }
-
+    public void switchTurn(){
+        if(playersTurn == myBoard.players.size()-1){
+            playersTurn =0;
+        }
+        else{
+            playersTurn++;
+        }
+    }
     public TestGUI(){
         JFrame f = new JFrame();
         try {
@@ -56,7 +66,7 @@ public class TestGUI extends JPanel implements MouseListener {
                     //add handling for path selection
 
                     JOptionPane.showMessageDialog(null,"You've Selected Lincoln Center");
-
+                    selection(0);
                 }
             });
 
@@ -69,7 +79,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Central Park");
-
+                    selection(1);
                 }
             });
 
@@ -81,7 +91,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected MidTown West");
-
+                    selection(2);
                 }
             });
 
@@ -93,7 +103,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected TimesSquare");
-
+                    selection(3);
                 }
             });
 
@@ -105,7 +115,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected United Nations");
-
+                    selection(4);
                 }
             });
 
@@ -117,7 +127,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Empire State Building");
-
+                    selection(5);
                 }
             });
 
@@ -129,7 +139,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Chelsea");
-
+                    selection(6);
                 }
             });
 
@@ -141,7 +151,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Gramercy Park");
-
+                    selection(7);
                 }
             });
 
@@ -153,7 +163,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Greenwich Village");
-
+                    selection(8);
                 }
             });
 
@@ -165,7 +175,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected East Village");
-
+                    selection(9);
                 }
             });
 
@@ -177,7 +187,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Soho");
-
+                    selection(10);
                 }
             });
 
@@ -189,7 +199,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected ChinaTown");
-
+                    selection(12);
                 }
             });
 
@@ -201,7 +211,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Lower East");
-
+                    selection(11);
                 }
             });
 
@@ -213,7 +223,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Wall Street");
-
+                    selection(13);
                 }
             });
 
@@ -225,7 +235,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 public void mouseClicked(MouseEvent e)
                 {
                     JOptionPane.showMessageDialog(null,"You've Selected Brooklyn");
-
+                    selection(14);
                 }
             });
 
@@ -309,6 +319,24 @@ public class TestGUI extends JPanel implements MouseListener {
 
         f.pack();
         f.setVisible(true);
+    }
+    public void selection(int num){
+        if(firstSelection != -1){
+            secondSelection = num;
+            Player turn = myBoard.players.get(playersTurn);
+            ArrayList<TransportationCard> input = new ArrayList<TransportationCard>();//This needs to be inputted by user, selected
+            if(myBoard.checkPathwayAvailability(turn,input,firstSelection,secondSelection)){
+                
+                switchTurn();
+            }
+            
+            
+            firstSelection = -1;
+            secondSelection = -1;
+        }
+        else{
+            firstSelection = num;
+        }
     }
     
     public void setButtonsVisible(){
