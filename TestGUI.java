@@ -41,7 +41,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton lincolnCenter = new JButton();
         lincolnCenter.setBounds(115,30, 30,30);
         lincolnCenter.setOpaque(true);
-        lincolnCenter.setContentAreaFilled(false);
+        lincolnCenter.setContentAreaFilled(true);
         lincolnCenter.setBorderPainted(false);
         lincolnCenter.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
@@ -54,7 +54,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton centralPark = new JButton();
         centralPark.setBounds(300,20, 30,30);
         centralPark.setOpaque(true);;
-        centralPark.setContentAreaFilled(false);
+        centralPark.setContentAreaFilled(true);
         centralPark.setBorderPainted(false);
         centralPark.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
@@ -67,7 +67,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton midtownWest = new JButton();
         midtownWest.setBounds(94,236, 20,20);
         midtownWest.setOpaque(true);;
-        midtownWest.setContentAreaFilled(false);
+        midtownWest.setContentAreaFilled(true);
         midtownWest.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -79,7 +79,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton timesSquare = new JButton();
         timesSquare.setBounds(222,205, 20,20);
         timesSquare.setOpaque(true);;
-        timesSquare.setContentAreaFilled(false);
+        timesSquare.setContentAreaFilled(true);
         timesSquare.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -91,7 +91,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton unitedNations = new JButton();
         unitedNations.setBounds(465,195, 20,20);
         unitedNations.setOpaque(true);;
-        unitedNations.setContentAreaFilled(false);
+        unitedNations.setContentAreaFilled(true);
         unitedNations.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -103,7 +103,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton empireState = new JButton();
         empireState.setBounds(297,318, 20,20);
         empireState.setOpaque(true);;
-        empireState.setContentAreaFilled(false);
+        empireState.setContentAreaFilled(true);
         empireState.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -115,7 +115,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton chelsea = new JButton();
         chelsea.setBounds(140,430, 20,20);
         chelsea.setOpaque(true);;
-        chelsea.setContentAreaFilled(false);
+        chelsea.setContentAreaFilled(true);
         chelsea.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -127,7 +127,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton gramercyPark = new JButton();
         gramercyPark.setBounds(375,418, 20,20);
         gramercyPark.setOpaque(true);;
-        gramercyPark.setContentAreaFilled(false);
+        gramercyPark.setContentAreaFilled(true);
         gramercyPark.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -139,7 +139,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton greenwichVillage = new JButton();
         greenwichVillage.setBounds(338,594, 20,20);
         greenwichVillage.setOpaque(true);;
-        greenwichVillage.setContentAreaFilled(false);
+        greenwichVillage.setContentAreaFilled(true);
         greenwichVillage.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -151,7 +151,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton eastVillage = new JButton();
         eastVillage.setBounds(525,583, 20,20);
         eastVillage.setOpaque(true);;
-        eastVillage.setContentAreaFilled(false);
+        eastVillage.setContentAreaFilled(true);
         eastVillage.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -163,7 +163,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton soho = new JButton();
         soho.setBounds(227,758, 20,20);
         soho.setOpaque(true);;
-        soho.setContentAreaFilled(false);
+        soho.setContentAreaFilled(true);
         soho.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -175,7 +175,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton chinaTown = new JButton();
         chinaTown.setBounds(387,780, 20,20);
         chinaTown.setOpaque(true);;
-        chinaTown.setContentAreaFilled(false);
+        chinaTown.setContentAreaFilled(true);
         chinaTown.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -187,7 +187,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton lowerEast = new JButton();
         lowerEast.setBounds(505,708, 20,20);
         lowerEast.setOpaque(true);;
-        lowerEast.setContentAreaFilled(false);
+        lowerEast.setContentAreaFilled(true);
         lowerEast.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -199,7 +199,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton wallStreet = new JButton();
         wallStreet.setBounds(330,918, 20,20);
         wallStreet.setOpaque(true);;
-        wallStreet.setContentAreaFilled(false);
+        wallStreet.setContentAreaFilled(true);
         wallStreet.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -211,7 +211,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton brooklyn = new JButton();
         brooklyn.setBounds(590,940, 20,20);
         brooklyn.setOpaque(true);;
-        brooklyn.setContentAreaFilled(false);
+        brooklyn.setContentAreaFilled(true);
         brooklyn.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -225,7 +225,7 @@ public class TestGUI extends JPanel implements MouseListener {
         linc_Mid.setBounds(95,70,35,135);
         linc_Mid.setOpaque(true);;
         linc_Mid.setBorderPainted(false);
-        linc_Mid.setContentAreaFilled(false);
+        linc_Mid.setContentAreaFilled(true);
         linc_Mid.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -238,7 +238,7 @@ public class TestGUI extends JPanel implements MouseListener {
         linc_Cen.setBounds(152,20,140,30);
         linc_Cen.setOpaque(true);;
         linc_Cen.setBorderPainted(false);
-        linc_Cen.setContentAreaFilled(false);
+        linc_Cen.setContentAreaFilled(true);
         linc_Cen.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
@@ -250,7 +250,7 @@ public class TestGUI extends JPanel implements MouseListener {
         JButton times_Nations = new JButton();
         times_Nations.setBounds(290,185,145,35);
         times_Nations.setOpaque(true);;
-        times_Nations.setContentAreaFilled(false);
+        times_Nations.setContentAreaFilled(true);
         times_Nations.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e)
                 {
