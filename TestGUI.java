@@ -359,7 +359,7 @@ public class TestGUI extends JPanel implements MouseListener {
                             g2.draw(new Line2D.Float(x1, y1, x2, y2));
                         }
                     });
-                //f.repaint();
+                f.repaint();
                 input.clear();
                 switchTurn();
             }
