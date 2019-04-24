@@ -34,7 +34,7 @@ public class Board
         colors.add(Color.ORANGE);
 
         for(int i=0;i<numPlayers;i++){
-            players.add(new Player("PLACEHOLDER",i,colors.get(i)));
+            players.add(new Player("PLACEHOLDER "+ i,i,colors.get(i)));
         }
 
         map.add(new Node("Lincoln Center",false,0,0));//0
@@ -414,7 +414,13 @@ public class Board
         c = new DestTickCard(map.get(13),map.get(4),8,"./DESTCARDS/17.jpg");
         destDeck.discard(c);
 
-        destDeck.shuffleWithDiscards();
+        destDeck.shuffleWithDiscards(); //all cards are in the discard pile
+        //so add them to the cards pile
+        
+        for(Card g: transDeck.cards){
+            System.out.println((TransportationCard)g);
+        }
+        System.out.println();
         for(Card g: destDeck.cards){
             System.out.println((DestTickCard)g);
         }
@@ -431,6 +437,6 @@ public class Board
         for(Node n:b.map){
             System.out.println(n);
         }
-
+        
     }
 }
