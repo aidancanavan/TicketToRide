@@ -28,6 +28,12 @@ public class Node
         this.Xpos = Xpos;
         this.Ypos = Ypos;
     }
+    
+    /**
+     * Standard toString method
+     * @return a string indicatng the node's name and all of its 
+     * connected destinations
+     */
     public String toString(){
         
         String output ="City: "+name;

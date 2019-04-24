@@ -12,7 +12,6 @@ public class DestTickCard extends Card
     protected Node b;
     int value;
     public String imagePath;
-    
 
     /**
      * Constructor for objects of class DestTickCard
@@ -25,13 +24,15 @@ public class DestTickCard extends Card
         b = B;
         value = val;
         this.imagePath = imagePath;
-        
-    }
-    public String toString(){
-    return a.name +" to "+b.name+": "+value+" Path: "+imagePath;
-    
-    
-    }
 
+    }
+    /**
+     * Standard to string method for a destination ticket card
+     * @returnt the Name of each node, the value of the card, and the name of the path
+     */
+    public String toString(){
+        return a.name +" to "+b.name+": "+value+" Path: "+imagePath;
+
+    }
     
 }
