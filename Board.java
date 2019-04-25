@@ -427,6 +427,23 @@ public class Board
     }
     
     /**
+     * Method that will deal the starting hand for each player. 
+     */
+    public void dealingStartingHand(){
+        for(int i=0; i<players.size(); i++){
+            for(int j=0; j<5;j++){
+            Player p = players.get(i);
+            p.hand.add((TransportationCard)transDeck.draw());
+        }
+        
+         for(int k=0; k<2;k++){
+            Player p = players.get(i);
+            p.myDestCards.add((DestTickCard)destDeck.draw());
+        }
+        }
+    }
+    
+    /**
      * Main method, really just to be used for testing purposes 
      * @param args An array of String (Do not use)
      * 
