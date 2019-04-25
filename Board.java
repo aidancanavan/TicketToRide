@@ -445,22 +445,22 @@ public class Board
             }
         }
     }
-    
-        // // Prints all paths from
+
+    // // Prints all paths from
     // // 's' to 'd'
-    // public void printAllPaths(Node start, int dest) 
+    // public void printAllPaths(Node start, Node dest) 
     // {
-        // //boolean[] isVisited = new boolean[v];
-        // //dont need this, it would be a boolean array each vertex as visited
-        // // ours just will set the Node's visited to true and falsemarking 
-        // ArrayList<Pathway> pathList = new ArrayList<Pathway>();
+    // //boolean[] isVisited = new boolean[v];
+    // //dont need this, it would be a boolean array each vertex as visited
+    // // ours just will set the Node's visited to true and falsemarking 
+    // ArrayList<Pathway> pathList = new ArrayList<Pathway>(); 
 
-        // //add source to path[]
-        // //pathList.add(new Node());this should be the source node A
+    // //add source to path[]
+    // //pathList.add(new Node());this should be the source node A
 
-        // //Call recursive utility 
-        // //(so rather than printing all the paths, add them to a list)
-        // printAllPathsUtil(s, d, isVisited, pathList);
+    // //Call recursive utility 
+    // //(so rather than printing all the paths, add them to a list)
+    // printAllPathsUtil(start, dest, pathList);
     // }
 
     // // A recursive function to print
@@ -471,61 +471,61 @@ public class Board
     // // vertices in the current path
     // private void printAllPathsUtil(Node u, Node d, ArrayList<Pathway> localPathList) {
 
-        // // Mark the current node
-        // u.setVisited();
-        // //isVisited[u] = true;
+    // // Mark the current node
+    // u.setVisited();
+    // //isVisited[u] = true;
 
-        // if (u.equals(d)) //this is where we would add to the list
-        // {
-            // System.out.println(localPathList);
-        // }
+    // if (u.equals(d)) //this is where we would add to the list
+    // {
+    // System.out.println(localPathList);
+    // }
 
-        // // Recur for all the vertices
-        // // adjacent to current vertex
-        // //need to create a list of all adjacent vertices (nodes) here 
-        // for (Pathway i : u.destinations) 
-        // {
-            
-        // }
-        // for (Pathway i : u.destinations) 
-        // {
-            
-            // if (!isVisited[i])
-            // {
-                // // store current node 
-                // // in path[]
-                // localPathList.add(i);
-                // printAllPathsUtil(i, d, isVisited, localPathList);
+    // // Recur for all the vertices
+    // // adjacent to current vertex
+    // //need to create a list of all adjacent vertices (nodes) here 
+    // for (Pathway i : u.destinations) 
+    // {
 
-                // // remove current node
-                // // in path[]
-                // localPathList.remove(i);
-            // }
-        // }
+    // }
+    // for (Pathway i : u.destinations) 
+    // {
 
-        // // Mark the current node
-        // //isVisited[u] = false;
-        // u.resetVisited();
+    // if (!i.end.visited)
+    // {
+    // // store current node 
+    // // in path[]
+    // localPathList.add(i);
+    // printAllPathsUtil(u, d, localPathList);
+
+    // // remove current node
+    // // in path[]
+    // localPathList.remove(i);
+    // }
+    // }
+
+    // // Mark the current node
+    // //isVisited[u] = false;
+    // u.resetVisited();
     // }
 
     // public boolean pathExists(DestTickCard card){
-        // // each player has their list of pathways claimed.
-        // Node a = card.a;
-        // Node b = card.b;
-        // // each dest card has Nodes A and B 
-        // // could make a list of all possible paths from A to B or B to A (of length < 10)
+    // // each player has their list of pathways claimed.
+    // Node a = card.a;
+    // Node b = card.b;
+    // // each dest card has Nodes A and B 
+    // // could make a list of all possible paths from A to B or B to A (of length < 10)
 
-        // // if the players have all the pathways in that path, then we found one
+    // // if the players have all the pathways in that path, then we found one
 
-        // // so basically a method needs to generate all the paths from one place to another (A to B on the destination card)
+    // // so basically a method needs to generate all the paths from one place to another (A to B on the destination card)
 
-        // // loop through every path
-        // // then check to see if the players list of pathways claims          contains everything on that path. 
-        // // If so, then card is fullfilled
+    // // loop through every path
+    // // then check to see if the players list of pathways claims          contains everything on that path. 
+    // // If so, then card is fullfilled
 
-        // // if we searched through every single path, and found nothing, card is not fulfilled and player loses points
+    // // if we searched through every single path, and found nothing, card is not fulfilled and player loses points
 
-        // return false;
+    // return false;
     // }
 
     /**
