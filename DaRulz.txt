@@ -1,6 +1,7 @@
 Contents of the game:
-	- 1 board map (with each of the destinations and paths)
-	- 60 taxis, 15 of each color for each player
+	- each start with 5 cards 
+	- 1 board map (with each of the destinations and paths) - done
+	- 60 taxis, 15 of each color for each player - done
 	- 44 transportation cards (8 rainbow/taxis, 6 of all the other colors - blue, green, black, pink, red, orange)
 	- 18 Destination Ticket Cards
 	- 1 rule leaflet

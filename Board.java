@@ -252,7 +252,7 @@ public class Board
         initializeAllCards();
         ////////////////////////////////////////////////////////////////////////////////
     }
-    
+
     /**
      * Check to see if a pathway is available to claim
      * @param turn The player who's turn it is
@@ -271,7 +271,7 @@ public class Board
         Color c = inputCards.get(0).color;
 
         //need checks for rainbow cards (should be done in loop below)
-        
+
         //makes sure all are the same color, or rainbow
         for(TransportationCard t:inputCards){
             if(t.color!=null && !c.equals(t.color)){ //if not a taxi and not the color
@@ -282,7 +282,7 @@ public class Board
         }
         //loop before checks to see if all the colors of the 
         //inputted cards are the same
-        
+
         Node endNode = map.get(locationEnd);
 
         int length = inputCards.size();
@@ -302,8 +302,7 @@ public class Board
                     //two paths are added to the players list one from
                     //(a to b) and one from (b to a)
                     //this will make traversal easier later
-                    
-                    
+
                     //destinations is an arraylist of path 
                     start.destinations.remove(p);
                     for(Pathway g:endNode.destinations){
@@ -416,7 +415,7 @@ public class Board
 
         destDeck.shuffleWithDiscards(); //all cards are in the discard pile
         //so add them to the cards pile
-        
+
         for(Card g: transDeck.cards){
             System.out.println((TransportationCard)g);
         }
@@ -424,25 +423,111 @@ public class Board
         for(Card g: destDeck.cards){
             System.out.println((DestTickCard)g);
         }
+
+        dealingStartingHand();
     }
-    
+
     /**
      * Method that will deal the starting hand for each player. 
      */
     public void dealingStartingHand(){
+        //deals 5 trans cards to each player
         for(int i=0; i<players.size(); i++){
+            //deals 5 trans cards to each player
             for(int j=0; j<5;j++){
-            Player p = players.get(i);
-            p.hand.add((TransportationCard)transDeck.draw());
-        }
-        
-         for(int k=0; k<2;k++){
-            Player p = players.get(i);
-            p.myDestCards.add((DestTickCard)destDeck.draw());
-        }
+                Player p = players.get(i);
+                p.hand.add((TransportationCard)transDeck.draw());
+            }
+            //deals 2 dest cards to each player
+            for(int k=0; k<2;k++){
+                Player p = players.get(i);
+                p.myDestCards.add((DestTickCard)destDeck.draw());
+            }
         }
     }
     
+        // // Prints all paths from
+    // // 's' to 'd'
+    // public void printAllPaths(Node start, int dest) 
+    // {
+        // //boolean[] isVisited = new boolean[v];
+        // //dont need this, it would be a boolean array each vertex as visited
+        // // ours just will set the Node's visited to true and falsemarking 
+        // ArrayList<Pathway> pathList = new ArrayList<Pathway>();
+
+        // //add source to path[]
+        // //pathList.add(new Node());this should be the source node A
+
+        // //Call recursive utility 
+        // //(so rather than printing all the paths, add them to a list)
+        // printAllPathsUtil(s, d, isVisited, pathList);
+    // }
+
+    // // A recursive function to print
+    // // all paths from 'u' to 'd'.
+    // // isVisited[] keeps track of
+    // // vertices in current path.
+    // // localPathList<> stores actual
+    // // vertices in the current path
+    // private void printAllPathsUtil(Node u, Node d, ArrayList<Pathway> localPathList) {
+
+        // // Mark the current node
+        // u.setVisited();
+        // //isVisited[u] = true;
+
+        // if (u.equals(d)) //this is where we would add to the list
+        // {
+            // System.out.println(localPathList);
+        // }
+
+        // // Recur for all the vertices
+        // // adjacent to current vertex
+        // //need to create a list of all adjacent vertices (nodes) here 
+        // for (Pathway i : u.destinations) 
+        // {
+            
+        // }
+        // for (Pathway i : u.destinations) 
+        // {
+            
+            // if (!isVisited[i])
+            // {
+                // // store current node 
+                // // in path[]
+                // localPathList.add(i);
+                // printAllPathsUtil(i, d, isVisited, localPathList);
+
+                // // remove current node
+                // // in path[]
+                // localPathList.remove(i);
+            // }
+        // }
+
+        // // Mark the current node
+        // //isVisited[u] = false;
+        // u.resetVisited();
+    // }
+
+    // public boolean pathExists(DestTickCard card){
+        // // each player has their list of pathways claimed.
+        // Node a = card.a;
+        // Node b = card.b;
+        // // each dest card has Nodes A and B 
+        // // could make a list of all possible paths from A to B or B to A (of length < 10)
+
+        // // if the players have all the pathways in that path, then we found one
+
+        // // so basically a method needs to generate all the paths from one place to another (A to B on the destination card)
+
+        // // loop through every path
+        // // then check to see if the players list of pathways claims          contains everything on that path. 
+        // // If so, then card is fullfilled
+
+        // // if we searched through every single path, and found nothing, card is not fulfilled and player loses points
+
+        // return false;
+    // }
+
     /**
      * Main method, really just to be used for testing purposes 
      * @param args An array of String (Do not use)
@@ -454,6 +539,6 @@ public class Board
         for(Node n:b.map){
             System.out.println(n);
         }
-        
+
     }
 }
