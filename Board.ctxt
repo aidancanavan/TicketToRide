@@ -1,12 +1,19 @@
 #BlueJ class context
 comment0.target=Board
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Board\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Constructs\ a\ board\ object\ for\ the\ game\n\ Holds\ a\ transportation\ Card\ deck,\n\ a\ destination\ card\ deck,\n\ A\ list\ of\ players,\n\ a\ list\ if\ colors\ (for\ transportation\ cards),\n\ and\ a\ list\ of\ nodes\ (for\ the\ map)\n\ \n\n\ @author\ Aidan\ Canavan\n\ @version\ 1.0\n
 comment1.params=numPlayers
 comment1.target=Board(int)
+comment1.text=\n\ Constructor\ for\ board\ object\n\ Takes\ as\ input\ the\ number\ of\ players\ for\ the\ game\n
 comment2.params=turn\ inputCards\ locationStart\ locationEnd
 comment2.target=boolean\ checkPathwayAvailability(Player,\ java.util.ArrayList,\ int,\ int)
+comment2.text=\n\ Check\ to\ see\ if\ a\ pathway\ is\ available\ to\ claim\n\ @param\ turn\ The\ player\ who's\ turn\ it\ is\n\ @param\ inputCards\ The\ cards\ used\ to\ attempt\ a\ claim\n\ @param\ locationStart\ the\ identity\ number\ for\ the\ start\ location\n\ @param\ locationEnd\ the\ identity\ number\ the\ for\ the\ end\ location\n\ \n
 comment3.params=
 comment3.target=void\ initializeAllCards()
-comment4.params=args
-comment4.target=void\ main(java.lang.String[])
-numComments=5
+comment3.text=\n\ Simply\ a\ method\ to\ initialize\ all\ the\ cards\ for\ the\ game\n\ Makes\ the\ appropriate\ amount\ of\ each\ card\n
+comment4.params=
+comment4.target=void\ dealingStartingHand()
+comment4.text=\n\ Method\ that\ will\ deal\ the\ starting\ hand\ for\ each\ player.\ \n
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\n\ Main\ method,\ really\ just\ to\ be\ used\ for\ testing\ purposes\ \n\ @param\ args\ An\ array\ of\ String\ (Do\ not\ use)\n\ \n
+numComments=6
