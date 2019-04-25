@@ -349,11 +349,7 @@ public class TestGUI extends JPanel implements MouseListener {
         f.setVisible(true);
         repaint();
     }
-
-    public void selectCard(){
-        //update input arrayList
-
-    }
+    
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

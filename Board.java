@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.awt.Color;
+import java.util.*;
 
 /**
  * Constructs a board object for the game
@@ -18,6 +19,7 @@ public class Board
 {
     public Deck transDeck = new Deck();
     public Deck destDeck = new Deck();
+    public ArrayList<TransportationCard> faceUps = new ArrayList<TransportationCard>();
 
     public ArrayList<Player> players = new ArrayList<Player>();
     public ArrayList<Color> colors = new ArrayList<Color>();
@@ -323,6 +325,108 @@ public class Board
         return false;
         //method must remove not only the pathway from the start node list
         //but also the reverse pathway coming from the end node
+    }
+    
+    /**
+     * This lets a player choose cards from the deck  
+     * should reveal two cards from top of deck
+     * user can add both, and must add 1
+     * returned cards are placed at bottom of deck
+     * This is a text version for now, gui update later
+     */
+    public void drawDestCards(Player p){
+        //draw the two cards from the top 
+        DestTickCard card1 = (DestTickCard)destDeck.draw();
+        if (destDeck.cards.size()==1 && destDeck.discards.isEmpty()){
+            p.myDestCards.add(card1); // player has to draw a card if only one left
+        }
+        
+        DestTickCard card2 = (DestTickCard)destDeck.draw();
+        
+        //reveal the two cards 
+        System.out.println("You drew a " + card1 + " and a " + card2);
+        System.out.print("Would you like to keep both?");
+        Scanner scan = new Scanner(System.in);
+        if(scan.next().equals("Yes")){
+            p.myDestCards.add(card1);
+            p.myDestCards.add(card2);
+            System.out.println("You added a " + card1 + " and a " + card2);
+            return;
+        }
+        else{
+            System.out.print("You must keep at least 1, which one would you like to keep?");
+            if (scan.next().equals("1")){
+                p.myDestCards.add(card1);
+                System.out.println("You added a " + card1);
+                destDeck.cards.add(0,card2); //add other card back to bottom
+                return;
+            }
+            else {
+                p.myDestCards.add(card2);
+                System.out.println("You added a " + card2);
+                destDeck.cards.add(0,card1);
+                return;
+                
+            }
+        }       
+    }   
+    
+    /**
+     * This is if the player chooses to draw transcards during their turn
+     * 
+     */
+    public void drawTransCard(Player p){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("This is your first draw."); 
+        System.out.print("Would you like to draw from the deck or the face up cards?");
+        if (scan.next().equals("deck")){
+            TransportationCard card1 = drawFromDeck(p);
+            p.hand.add(card1);
+            System.out.println("You added a " + card1);
+        }
+        else {
+            TransportationCard card1 = drawFromFaceUp(p);
+            p.hand.add(card1);
+            System.out.println("You added a " + card1);
+            if (card1.color.equals(null)){
+                System.out.println("You added a taxi, so you cannot draw anymore cards this turn");
+                return;
+            }
+        }
+        System.out.println("This is your second draw."); 
+        System.out.print("Would you like to draw from the deck or the face up cards?");
+        if (scan.next().equals("deck")){
+            TransportationCard card2 = drawFromDeck(p);
+            p.hand.add(card2);
+            System.out.println("You added a " + card2);
+        }
+        else {
+            TransportationCard card2 = drawFromFaceUp(p);
+            p.hand.add(card2);
+            System.out.println("You added a " + card2);
+        }
+        
+    }
+    
+    /**
+     * This lets a player draw cards from the deck, just draws from the top of the deck
+     */
+    public TransportationCard drawFromDeck(Player p){
+        return (TransportationCard)transDeck.draw();
+    }
+    
+    /**
+     * This lets a player choose cards from the face up cards  
+     * 
+     */
+    public TransportationCard drawFromFaceUp(Player p){
+        System.out.println("Choose which card you would like to draw (range 0 - 4");
+        Scanner scan = new Scanner(System.in);
+        int index = scan.nextInt();
+        
+        TransportationCard card = faceUps.remove(index);   
+        faceUps.add((TransportationCard)transDeck.draw());
+        return card;
     }
     ////////////////////////////////////////////////////////////////////////////////
     /**
