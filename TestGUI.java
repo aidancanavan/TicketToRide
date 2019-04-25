@@ -31,7 +31,7 @@ public class TestGUI extends JPanel implements MouseListener {
     public int y1;
     public int x2;
     public int y2;
-    JFrame f = new JFrame();
+    static JFrame f = new JFrame();
     public void mouseEntered( MouseEvent e ) { }
 
     public void mouseExited( MouseEvent e ) { }
@@ -41,7 +41,7 @@ public class TestGUI extends JPanel implements MouseListener {
     public void mouseReleased( MouseEvent e ) { }
 
     public void mouseClicked( MouseEvent e ) {
-        
+
     }
 
     public void switchTurn(){
@@ -54,7 +54,7 @@ public class TestGUI extends JPanel implements MouseListener {
     }
 
     public TestGUI(){
-        
+
         try {
             f.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("theMap.jpg")))));
         } catch (IOException e) {
@@ -66,6 +66,7 @@ public class TestGUI extends JPanel implements MouseListener {
 
         //creating buttons to coorespond with each location on game board
         JButton lincolnCenter = new JButton();
+        lincolnCenter.setBackground(Color.RED);
         lincolnCenter.setBounds(775,25, 30,30);
         lincolnCenter.setOpaque(true);
         lincolnCenter.setContentAreaFilled(true);
@@ -75,7 +76,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 {
                     //add node numbers to return
                     //add handling for path selection
-
+                    lincolnCenter.setBackground(Color.blue);
                     JOptionPane.showMessageDialog(null,"You've Selected Lincoln Center");
                     selection(0);
                 }
@@ -250,44 +251,56 @@ public class TestGUI extends JPanel implements MouseListener {
                 }
             });
 
+        // 775,25, 30,30
         //creating pathbuttons
-        // JButton linc_Mid = new JButton();
-        // linc_Mid.setBounds(95,70,35,135);
-        // linc_Mid.setOpaque(true);;
-        // linc_Mid.setBorderPainted(false);
-        // linc_Mid.setContentAreaFilled(true);
-        // linc_Mid.addMouseListener(new MouseAdapter(){
-        // public void mouseClicked(MouseEvent e)
-        // {
-        // JOptionPane.showMessageDialog(null,"You've Selected the Linc-Mid Route");
+        JButton linc_Mid = new JButton();
+        linc_Mid.setBounds(760,120,30,30);
+        linc_Mid.setOpaque(true);
+        linc_Mid.setContentAreaFilled(true);
+        linc_Mid.setBorderPainted(false);
+        // linc_Mid.setBorderPainted(true);
+        //linc_Mid.setContentAreaFilled(true);
+        linc_Mid.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    // Random rand = new Random();
+                    // int ran = rand.nextInt(2);
+                    // if (ran==0){
+                    // linc_Mid.setBackground(Color.red);
+                    // }
+                    // else{
+                    // linc_Mid.setBackground(Color.blue);
+                    // }
 
-        // }
-        // });
+                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Mid Route");
 
-        // JButton linc_Cen = new JButton();
-        // linc_Cen.setBounds(152,20,140,30);
-        // linc_Cen.setOpaque(true);;
-        // linc_Cen.setBorderPainted(false);
-        // linc_Cen.setContentAreaFilled(true);
-        // linc_Cen.addMouseListener(new MouseAdapter(){
-        // public void mouseClicked(MouseEvent e)
-        // {
-        // JOptionPane.showMessageDialog(null,"You've Selected the Linc-Cen Route");
+                }
+            });
 
-        // }
-        // });
+        JButton linc_Cen = new JButton();
+        linc_Cen.setBounds(152,20,140,30);
+        linc_Cen.setOpaque(true);;
+        linc_Cen.setBorderPainted(false);
+        linc_Cen.setContentAreaFilled(true);
+        linc_Cen.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Linc-Cen Route");
 
-        // JButton times_Nations = new JButton();
-        // times_Nations.setBounds(290,185,145,35);
-        // times_Nations.setOpaque(true);;
-        // times_Nations.setContentAreaFilled(true);
-        // times_Nations.addMouseListener(new MouseAdapter(){
-        // public void mouseClicked(MouseEvent e)
-        // {
-        // JOptionPane.showMessageDialog(null,"You've Selected the Times_Nation Route");
+                }
+            });
 
-        // }
-        // });
+        JButton times_Nations = new JButton();
+        times_Nations.setBounds(290,185,145,35);
+        times_Nations.setOpaque(true);;
+        times_Nations.setContentAreaFilled(true);
+        times_Nations.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Times_Nation Route");
+
+                }
+            });
 
         //add all  dest buttons
         f.add(lincolnCenter);
@@ -324,12 +337,17 @@ public class TestGUI extends JPanel implements MouseListener {
         points.add(brooklyn);
 
         // add all path buttons
-        // f.add(linc_Mid);
-        // f.add(linc_Cen);
-        // f.add(times_Nations);
+        f.add(linc_Mid);
+        f.add(linc_Cen);
+        f.add(times_Nations);
+
+        points.add(linc_Mid);
+        points.add(linc_Cen);
+        points.add(times_Nations);
 
         f.pack();
         f.setVisible(true);
+        repaint();
     }
 
     public void selectCard(){
@@ -337,9 +355,19 @@ public class TestGUI extends JPanel implements MouseListener {
 
     }
 
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        System.out.println("Line Drawn");
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(15));
+        g2.setColor(Color.black);
+        g2.draw(new Line2D.Float(x1, y1, x2, y2));
+
+    }
+
     public void selection(int num){
         if(firstSelection != -1){
-            
+
             secondSelection = num;
             Player turn = myBoard.players.get(playersTurn);
             //This needs to be inputted by user, selected
@@ -350,17 +378,17 @@ public class TestGUI extends JPanel implements MouseListener {
                 y1 = myBoard.map.get(firstSelection).Ypos;
                 x2 = myBoard.map.get(secondSelection).Xpos;
                 y2 = myBoard.map.get(secondSelection).Ypos;
-                Container cp = f.getContentPane();
-                cp.add(new JComponent() {
-                        public void paintComponent(Graphics g) {
-                            System.out.println("Line Drawn");
-                            Graphics2D g2 = (Graphics2D) g;
-                            g2.setStroke(new BasicStroke(15));
-                            g2.setColor(turn.myColor);
-                            g2.draw(new Line2D.Float(x1, y1, x2, y2));
-                        }
-                    });
-                f.repaint();
+                //Container cp = f.getContentPane();
+                // cp.add(new JComponent() {
+                // public void paintComponent(Graphics g) {
+                // System.out.println("Line Drawn");
+                // Graphics2D g2 = (Graphics2D) g;
+                // g2.setStroke(new BasicStroke(15));
+                // g2.setColor(turn.myColor);
+                // g2.draw(new Line2D.Float(x1, y1, x2, y2));
+                // }
+                // });
+                repaint();
                 input.clear();
                 switchTurn();
             }
@@ -401,11 +429,23 @@ public class TestGUI extends JPanel implements MouseListener {
         }
     }
 
-    public static void main(String[] args){
-        TestGUI board = new TestGUI();
-        //board.setButtonsInvisible();
-        // board.setButtonsEnabled();
+    public static void createAndShowGUI(){
 
-    
+        TestGUI panel = new TestGUI();
+        f.getContentPane().add(panel);
+        f.pack();
+        f.setVisible(true);
+
     }
+
+    public static void main(String[] args){
+        createAndShowGUI();
+    }
+
+    // public static void main(String[] args){
+    // TestGUI board = new TestGUI();
+    // //board.setButtonsInvisible();
+    // // board.setButtonsEnabled();
+
+    // }
 }
