@@ -445,7 +445,7 @@ public class Board
             }
         }
     }
-
+    //THIS IS ONE POSSIBLE WAY TO SEE IF A DEST TICK CARD IS COMPLETED 
     // // Prints all paths from
     // // 's' to 'd'
     // public void printAllPaths(Node start, Node dest) 
@@ -526,6 +526,72 @@ public class Board
     // // if we searched through every single path, and found nothing, card is not fulfilled and player loses points
 
     // return false;
+    // }
+    
+    //THIS IS ANOTHER WAY TO CHECK TO SEE IF WE HAVE COMPLETED A DEST TICKET CARD
+     // /**
+     // * Method for traversing the graph to figure out
+     // * which destination cards are completed for each player
+     // * 
+     // * @param p Player
+     // */
+    // protected void traverseDestinations(Player p) 
+    // {
+        // for (DestinationCard card : p.destinations) 
+        // {
+            // boolean done = false;
+            // ArrayList<City> reachableCities = new ArrayList<City>();
+            // while (!done) 
+            // {
+                // done = true; 
+                // for (Route route : p.controlledRoutes) 
+                // {
+                    // City city1 = route.twoCities.get(0);
+                    // City city2 = route.twoCities.get(1);
+                    // if(reachableCities.isEmpty())
+                    // {
+                        // if(allCities.get(card.city1).equals(city1) || 
+                        // allCities.get(card.city2).equals(city1)) 
+                        // {
+                            // reachableCities.add(city1);
+                            // done = false;
+                        // }
+                        // else if(allCities.get(card.city1).equals(city2) || 
+                        // allCities.get(card.city2).equals(city2)) 
+                        // {
+                            // reachableCities.add(city2);
+                            // done = false;
+                        // }
+                    // }
+                    // else if(!city1.isCountry && 
+                        // reachableCities.contains(city1) && 
+                        // !reachableCities.contains(city2)) 
+                    // {
+                        // reachableCities.add(city2);
+                        // done = false;
+                    // }
+                    // else if(!city2.isCountry && 
+                        // reachableCities.contains(city2) &&
+                        // !reachableCities.contains(city1)) 
+                    // {
+                        // reachableCities.add(city1);
+                        // done = false;
+                    // }
+                // }
+            // }
+            // //Check if both card cities are reachable to complete card
+            // if(reachableCities.contains(allCities.get(card.city1)) && 
+            // reachableCities.contains(allCities.get(card.city2))) 
+            // {
+                // p.completedDestinations.add(card);
+                // p.numCompletedDest++;
+            // }
+        // }
+
+        // for(DestinationCard completed : p.completedDestinations) 
+        // {
+            // p.destinations.remove(completed);
+        // }
     // }
 
     /**
