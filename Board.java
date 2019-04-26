@@ -60,22 +60,32 @@ public class Board
         add(new Pathway(Color.ORANGE,map.get(0),map.get(1),2));
         map.get(0).destinations
         .add(new Pathway(Color.RED,map.get(0),map.get(2),2));
+
         map.get(0).destinations.
         add(new Pathway(Color.BLUE,map.get(0),map.get(3),2));
-        map.get(0).destinations.
-        add(new Pathway(Color.GREEN,map.get(0),map.get(3),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(0).destinations.
+            add(new Pathway(Color.GREEN,map.get(0),map.get(3),2));
+        }
 
         //connections from Central Park
         map.get(1).destinations.
         add(new Pathway(Color.ORANGE,map.get(1),map.get(0),2));
+
         map.get(1).destinations.
         add(new Pathway(Color.PINK,map.get(1),map.get(4),3));
-        map.get(1).destinations.
-        add(new Pathway(Color.PINK,map.get(1),map.get(4),3));
+
+        // map.get(1).destinations.
+        // add(new Pathway(Color.PINK,map.get(1),map.get(4),3)); duplicate
+
         map.get(1).destinations.
         add(new Pathway(Color.RED,map.get(1),map.get(3),2));
-        map.get(1).destinations.
-        add(new Pathway(Color.BLACK,map.get(1),map.get(3),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(1).destinations.
+            add(new Pathway(Color.BLACK,map.get(1),map.get(3),2));
+        }
 
         //connections from Midtown West
         map.get(2).destinations.
@@ -88,11 +98,14 @@ public class Board
         add(new Pathway(Color.BLUE,map.get(2),map.get(6),2));
 
         //connections from Times Square
-        map.get(3).destinations.
-        add(new Pathway(Color.GREEN,map.get(3),map.get(0),2));
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(3).destinations.
+            add(new Pathway(Color.GREEN,map.get(3),map.get(0),2));
+        }
+
         map.get(3).destinations.
         add(new Pathway(Color.BLUE,map.get(3),map.get(0),2));
-        map.get(3).destinations.
+        map.get(3).destinations.        
         add(new Pathway(Color.BLACK,map.get(3),map.get(1),2));
         map.get(3).destinations.
         add(new Pathway(Color.RED,map.get(3),map.get(1),2));
@@ -100,8 +113,11 @@ public class Board
         add(new Pathway(null,map.get(3),map.get(2),1));
         map.get(3).destinations.
         add(new Pathway(null,map.get(3),map.get(4),2));
-        map.get(3).destinations.
-        add(new Pathway(Color.ORANGE,map.get(3),map.get(5),1));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(3).destinations.
+            add(new Pathway(Color.ORANGE,map.get(3),map.get(5),1));
+        }
         map.get(3).destinations.
         add(new Pathway(Color.PINK,map.get(3),map.get(5),1));
 
@@ -120,68 +136,113 @@ public class Board
         add(new Pathway(Color.GREEN,map.get(5),map.get(2),2));
         map.get(5).destinations.
         add(new Pathway(Color.BLACK,map.get(5),map.get(4),2));
+
         map.get(5).destinations.
         add(new Pathway(Color.PINK,map.get(5),map.get(3),1));
-        map.get(5).destinations.
-        add(new Pathway(Color.ORANGE,map.get(5),map.get(3),1));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(5).destinations.
+            add(new Pathway(Color.ORANGE,map.get(5),map.get(3),1));
+        }
+
         map.get(5).destinations.
         add(new Pathway(Color.RED,map.get(5),map.get(7),1));
-        map.get(5).destinations.
-        add(new Pathway(Color.BLUE,map.get(5),map.get(7),1));
-        map.get(5).destinations.
-        add(new Pathway(null,map.get(5),map.get(6),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(5).destinations.
+            add(new Pathway(Color.BLUE,map.get(5),map.get(7),1));
+        }
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(5).destinations.
+            add(new Pathway(null,map.get(5),map.get(6),2));
+        }
+
         map.get(5).destinations.
         add(new Pathway(null,map.get(5),map.get(6),2));
 
         //connections from Chelsea
         map.get(6).destinations.
         add(new Pathway(Color.BLUE,map.get(6),map.get(2),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(6).destinations.
+            add(new Pathway(null,map.get(6),map.get(5),2));
+        }
+
         map.get(6).destinations.
         add(new Pathway(null,map.get(6),map.get(5),2));
-        map.get(6).destinations.
-        add(new Pathway(null,map.get(6),map.get(5),2));
+
         map.get(6).destinations.
         add(new Pathway(Color.ORANGE,map.get(6),map.get(7),2));
-        map.get(6).destinations.
-        add(new Pathway(Color.RED,map.get(6),map.get(8),3));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(6).destinations.        
+            add(new Pathway(Color.RED,map.get(6),map.get(8),3));
+        }
+
         map.get(6).destinations.
         add(new Pathway(Color.GREEN,map.get(6),map.get(8),3));
+
         map.get(6).destinations.
         add(new Pathway(Color.PINK,map.get(6),map.get(10),4));
 
         //connections from Gramercy Park
         map.get(7).destinations.
         add(new Pathway(Color.GREEN,map.get(7),map.get(4),3));
-        map.get(7).destinations.
-        add(new Pathway(Color.BLUE,map.get(7),map.get(5),1));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(7).destinations.
+            add(new Pathway(Color.BLUE,map.get(7),map.get(5),1));
+        }
+
         map.get(7).destinations.
         add(new Pathway(Color.RED,map.get(7),map.get(5),1));
+
         map.get(7).destinations.
         add(new Pathway(Color.ORANGE,map.get(7),map.get(6),2));
-        map.get(7).destinations.
-        add(new Pathway(Color.BLACK,map.get(7),map.get(8),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(7).destinations.
+            add(new Pathway(Color.BLACK,map.get(7),map.get(8),2));
+        }
+
         map.get(7).destinations.
         add(new Pathway(Color.PINK,map.get(7),map.get(8),2));
         map.get(7).destinations.
         add(new Pathway(null,map.get(7),map.get(9),2));
 
         //connections from Greenwich Village
+
         map.get(8).destinations.
         add(new Pathway(Color.GREEN,map.get(8),map.get(6),3));
-        map.get(8).destinations.
-        add(new Pathway(Color.RED,map.get(8),map.get(6),3));
-        map.get(8).destinations.
-        add(new Pathway(Color.BLACK,map.get(8),map.get(7),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(8).destinations.
+            add(new Pathway(Color.RED,map.get(8),map.get(6),3));
+        }
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(8).destinations.
+            add(new Pathway(Color.BLACK,map.get(8),map.get(7),2));
+        }
+
         map.get(8).destinations.
         add(new Pathway(Color.PINK,map.get(8),map.get(7),2));
+
         map.get(8).destinations.
         add(new Pathway(Color.BLUE,map.get(8),map.get(9),2));
         map.get(8).destinations.
         add(new Pathway(null,map.get(8),map.get(11),2));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(8).destinations.
+            add(new Pathway(null,map.get(8),map.get(12),2));
+        }
+
         map.get(8).destinations.
         add(new Pathway(null,map.get(8),map.get(12),2));
-        map.get(8).destinations.
-        add(new Pathway(null,map.get(8),map.get(12),2));
+
         map.get(8).destinations.
         add(new Pathway(Color.ORANGE,map.get(8),map.get(10),2));
 
@@ -212,32 +273,52 @@ public class Board
         add(new Pathway(Color.BLACK,map.get(11),map.get(9),1));
 
         //connections from Chinatown
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(12).destinations.
+            add(new Pathway(null,map.get(12),map.get(8),2));
+        }
+
         map.get(12).destinations.
         add(new Pathway(null,map.get(12),map.get(8),2));
-        map.get(12).destinations.
-        add(new Pathway(null,map.get(12),map.get(8),2));
+
         map.get(12).destinations.
         add(new Pathway(Color.BLUE,map.get(12),map.get(11),1));
-        map.get(12).destinations.
-        add(new Pathway(Color.GREEN,map.get(12),map.get(13),1));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(12).destinations.
+            add(new Pathway(Color.GREEN,map.get(12),map.get(13),1));
+        }
+
         map.get(12).destinations.
         add(new Pathway(Color.PINK,map.get(12),map.get(13),1));
-        map.get(12).destinations.
-        add(new Pathway(Color.RED,map.get(12),map.get(14),3));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(12).destinations.
+            add(new Pathway(Color.RED,map.get(12),map.get(14),3));
+        }
+
         map.get(12).destinations.
         add(new Pathway(Color.ORANGE,map.get(12),map.get(14),3));
 
         //connections from Wall Street
         map.get(13).destinations.
         add(new Pathway(null,map.get(13),map.get(10),2));
-        map.get(13).destinations.
-        add(new Pathway(Color.GREEN,map.get(13),map.get(12),1));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(13).destinations.
+            add(new Pathway(Color.GREEN,map.get(13),map.get(12),1));
+        }
+
         map.get(13).destinations.
         add(new Pathway(Color.PINK,map.get(13),map.get(12),1));
+
         map.get(13).destinations.
         add(new Pathway(Color.BLUE,map.get(13),map.get(14),3));
-        map.get(13).destinations.
-        add(new Pathway(Color.BLACK,map.get(13),map.get(14),3));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(13).destinations.
+            add(new Pathway(Color.BLACK,map.get(13),map.get(14),3));
+        }
 
         //connections from Brooklyn
         map.get(14).destinations.
@@ -497,6 +578,7 @@ public class Board
     public void endGame(){
 
     }
+
     /**
      * Calculates the winner of the game (whoever has the highest amount of points)
      * If there is a tie, check to see who completed most dest ticketcards
@@ -753,7 +835,7 @@ public class Board
             faceUps.add((TransportationCard)transDeck.draw());
 
         }
-        if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
+        //if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
         //where there is an invalid FaceUps deck
         //so add them to the cards pile
 
