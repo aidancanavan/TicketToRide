@@ -88,6 +88,22 @@ public class Player
         score = routeScore + numTouristAttractions;
     }
     
+    /**
+     * Displays all the cards in a player's possession 
+     * 
+     */
+    public void displayCards(){
+        System.out.println(this.name + "'s hand:");
+        System.out.println("Trans cards:");
+        for (TransportationCard c: hand){
+            System.out.println(c);
+        }
+        System.out.println("Dest cards:");
+        for (DestTickCard c: myDestCards){
+            System.out.println(c);
+        }       
+    }
+    
     
     /**
      * THIS SHOULD COMPUTE FINAL SCORE

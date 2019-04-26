@@ -909,11 +909,6 @@ public class Board
         for (int i =0; i< numPlayers;i++){
             System.out.println("Player " + (i+1) + " enter your username: ");
             String userName = scan.next();
-            // System.out.println("Player " + (i+1) + " what color would you like to be?");
-            // System.out.println("Colors available: " + theGame.printColors()); 
-            // String color = scan.next();
-            // boolean isValidColor = false;
-            // Color c = null;
             boolean isValidColor = false;
             Color c = null;
             do {
@@ -961,22 +956,22 @@ public class Board
         theGame.dealingStartingHand(); //deals the starting hand for each player
 
         System.out.println();
+        theGame.playGame();
+        // for (Player p: theGame.players){
+        // System.out.println(p);
+        // }
 
-        for (Player p: theGame.players){
-            System.out.println(p);
-        }
-        
-        for (Player p: theGame.players){
-            System.out.println();
-            System.out.println(p.name + "'s cards");
-            for (TransportationCard c: p.hand){
-                System.out.println(c);
-            }
-            for (DestTickCard c: p.myDestCards){
-                System.out.println(c);
-            }
-        }
-
+        // for (Player p: theGame.players){
+        // System.out.println();
+        // System.out.println(p.name + "'s cards");
+        // for (TransportationCard c: p.hand){
+        // System.out.println(c);
+        // }
+        // for (DestTickCard c: p.myDestCards){
+        // System.out.println(c);
+        // }
+        // }
+        //theGame.playGame();
     }
 
     /**
@@ -989,6 +984,46 @@ public class Board
             temp = temp + c.toString() + " ";
         }
         return temp;
+    }
+
+    /**
+     * This is where most of the game is played, ie turns are taken
+     * 
+     */
+    public void playGame(){
+        Player p = this.players.get(0);
+        int i =0;
+        Scanner scan = new Scanner(System.in);
+        while(!checkEndCondition(p)){
+            System.out.println();
+            System.out.println("It is player " + (i+1) + "'s turn.");
+            p.displayCards();
+            System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
+            String decision = scan.next();
+            if (decision.equals("claim")){
+                System.out.print("What is the number of the start of the route you want to claim?");
+                int start = scan.nextInt();
+                System.out.print("What is the number of the end of the route");
+                int end = scan.nextInt();
+                claimRoute(p,start,end);
+            }
+            else if (decision.equals("drawDest")){
+                drawDestCards(p);
+            }
+            else { //draw trans cards
+                drawTransCard(p);
+            }
+            
+            if (i == players.size()-1){
+                i = 0;
+                p = this.players.get(i); // if this is the last player, go back to the first player
+            }
+            else {
+                i++;
+                p = this.players.get(i);
+            }
+        }
+
     }
 
     //THIS IS ONE POSSIBLE WAY TO SEE IF A DEST TICK CARD IS COMPLETED 
@@ -1147,8 +1182,8 @@ public class Board
      */
     public static void main(String args[]){
         //some tests
-        //Board b = new Board(4);
-        // for(Node n:b.map){
+        //oard b = new Board(4);
+        // for(Node n:b.map){ 
         // System.out.println(n);
         // }
         //Player p = new Player("player1", 1,Color.red);

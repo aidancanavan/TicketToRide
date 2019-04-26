@@ -26,8 +26,8 @@ Game end and final scoring:
 - then each player reveals ticket cards and add the value for ones completed, and subtracts value for ones left incomplete - EHH, I GUESS WE CAN DO THIS, BUT IM FINE WITH JUST GIVING EACH PLAYER THEIR SCORE
 
 Playing the game
-	- method must start the game, ask how many players, who wants what color, name etc.
-	- give each player their cards (deal cards method)
+	- method must start the game, ask how many players, who wants what color, name etc. - done
+	- give each player their cards (deal cards method) - done
 	while game is not over
 		- player 1 turn 
 		- player 2 turn, 
