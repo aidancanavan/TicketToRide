@@ -9,14 +9,15 @@ import java.util.ArrayList;
 //////////////////////////////////////////////////////////////////////////////////////////
 public class Player
 {
-    int value;//one two or three
+    public int value;//one two or three
     String name;//maybe we implement adding a name
     Color myColor;//players color
-    int tokens = 15;
+    public int tokens = 15;
     public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
     public ArrayList<TransportationCard> hand = new ArrayList<TransportationCard>();
     public ArrayList<DestTickCard> myDestCards = new ArrayList<DestTickCard>();
-    int score;
+    public int score;
+    public int destCardsCompleted;
     /**
      * Constructor for Player object, intitializes name, value and color
      * @param name The players name
@@ -28,6 +29,7 @@ public class Player
         this.value = value;
         myColor = c;
         score = 0;
+        destCardsCompleted = 0;
     }
 
     /**

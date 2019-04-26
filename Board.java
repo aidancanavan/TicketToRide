@@ -268,6 +268,11 @@ public class Board
         System.out.print("How many cards are you using to claim a route?");
         int numCards = scan.nextInt();
 
+        if (p.tokens<numCards) {
+            System.out.println("Sorry, you don't have enough taxis to claim the route");
+            return;
+        }
+
         //see if user is using any rainbow cards
         System.out.print("How many rainbow cards are you using to claim a route?");
         int numRainbow = scan.nextInt();
@@ -398,7 +403,7 @@ public class Board
             //for there being two pathways with null color and same 
             //length with different end nodes
 
-            if((p.color.equals(c) || p.color.equals(null)) 
+            if((p.color.equals(c) || p.color.equals(null)) //same color as cards, or grey route
             && (p.length == length)){
                 if(p.end.name.equals(endNode.name)){
                     System.out.println
@@ -477,6 +482,73 @@ public class Board
     }   
 
     /**
+     * Checks the end condition for the game, a player has two or fewer taxis
+     * @return true if the game should end, else false
+     */
+    public boolean checkEndCondition(Player p){
+        if (p.tokens<=2) return true;
+        return false;
+    }
+
+    /**
+     * Once the end game condition is triggered each player will get one last turn
+     * 
+     */
+    public void endGame(){
+
+    }
+    /**
+     * Calculates the winner of the game (whoever has the highest amount of points)
+     * If there is a tie, check to see who completed most dest ticketcards
+     * 
+     */
+    public Player winner(){
+        ArrayList<Player> winners = new ArrayList<Player>();
+        Player winner = null; 
+        int max = -1;
+        //see who has the most points, if there is a tie for the most, 
+        //keep them in an arraylist called winners
+        for (Player p: players){
+            if (p.score>max){
+                winner = p;
+                max = p.score;
+                winners.clear();//there is a new leader, so clear the winners list
+                winners.add(p);
+            }
+            else if (p.score == max){
+                winners.add(p);//there is a tie
+            }
+        }
+
+        // if there is more than one winner, check the dest cards completed
+        if (winners.size()>1){
+            int most =-1;
+            for (Player p: winners){
+                if (p.destCardsCompleted>most){
+                    winner = p;
+                    max = p.score; 
+                    winners.clear();//there is a new leader, so clear the winners list
+                    winners.add(p);
+                }
+                else if (p.destCardsCompleted == max){
+                    winners.add(p); //there is a tie
+                }
+            }
+        }
+
+        if (winners.size()>1){ //there is just a tie at this point
+            System.out.print("There is a tie between " );
+            for(Player p: winners){
+                System.out.print(p.name + " and " );
+            }
+            return null; // return null if there is a tie 
+        }
+        else { // there is just 1 winner
+            return winner;
+        }
+    }
+
+    /**
      * This is if the player chooses to draw transcards during their turn
      * Tested and works!
      * @param p Player that is drawing the transportation card
@@ -522,10 +594,13 @@ public class Board
      */
     public void newFaceUps(){
 
-        transDeck.discards.addAll(faceUps);
-        faceUps.clear();
+        transDeck.discards.addAll(faceUps); //add all transcard that were face up 
+        // to the dicscard pile
+        faceUps.clear(); //clear out the faceup cards
+        boolean isValidDeck = true;
+
         for (int i = 0; i <5;i++){
-            faceUps.add((TransportationCard)transDeck.draw());
+            faceUps.add((TransportationCard)transDeck.draw()); //draw 5 new cards from deck
         }
     }
 
@@ -571,6 +646,8 @@ public class Board
             if (!faceUps.get(index).color.equals(null)){ //if this is a taxi, you can't draw it, so gotta check that
                 card = faceUps.remove(index);   
                 faceUps.add((TransportationCard)transDeck.draw());
+                if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
+                //where there is an invalid FaceUps deck
                 isTaxi = false;
             }
             else {
@@ -674,7 +751,10 @@ public class Board
 
         for (int i =0; i <5; i++){ // make 5 cards faceUp
             faceUps.add((TransportationCard)transDeck.draw());
+
         }
+        if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
+        //where there is an invalid FaceUps deck
         //so add them to the cards pile
 
         // for(Card g: transDeck.cards){
