@@ -517,6 +517,36 @@ public class Board
     }
 
     /**
+     * Provides new faceUp cards for the faceUp deck
+     * Will only ever be called if stupidTaxiCondition returns true
+     */
+    public void newFaceUps(){
+
+        transDeck.discards.addAll(faceUps);
+        faceUps.clear();
+        for (int i = 0; i <5;i++){
+            faceUps.add((TransportationCard)transDeck.draw());
+        }
+    }
+
+    /**
+     * Checks to see if there is three or more taxi cards in the faceUp Deck
+     * If there is, then the cards need to be discarded into the the discard pile
+     * I named it stupidTaxiCondition because it is an antiquated rule
+     * @return true if condition is fullfilled, else false
+     */    
+    public boolean stupidTaxiCondition(){
+        int count = 0;
+        for (TransportationCard card: faceUps){
+            if (card.color.equals(null)){
+                count++;
+            }            
+        }
+        if (count>=3) return true;
+        return false;
+    }
+
+    /**
      * This lets a player draw cards from the deck, just draws from the top of the deck
      * Tested and works!
      * @param p Player that is drawing the card
@@ -531,12 +561,23 @@ public class Board
      * @param p Player that is drawing the card
      */
     public TransportationCard drawFromFaceUp(Player p){
-        System.out.println("Choose which card you would like to draw (range 0 - 4");
-        Scanner scan = new Scanner(System.in);
-        int index = scan.nextInt();
-
-        TransportationCard card = faceUps.remove(index);   
-        faceUps.add((TransportationCard)transDeck.draw());
+        boolean isTaxi = false;
+        int index =0;
+        TransportationCard card = null; //just instantiating outside loop
+        do {
+            System.out.println("Choose which card you would like to draw (range 0 - 4");
+            Scanner scan = new Scanner(System.in);
+            index = scan.nextInt();
+            if (!faceUps.get(index).color.equals(null)){ //if this is a taxi, you can't draw it, so gotta check that
+                card = faceUps.remove(index);   
+                faceUps.add((TransportationCard)transDeck.draw());
+                isTaxi = false;
+            }
+            else {
+                isTaxi=true;
+                System.out.println("You can't pick a taxi as your second card");
+            }
+        } while(isTaxi);       
         return card;
     }
 
@@ -548,43 +589,43 @@ public class Board
     public void initializeAllCards(){
         //Rainbow Cards, color is null
         String color = "RAINBOW";
-        for(int i =0;i<7;i++){
+        for(int i =0;i<=7;i++){
             TransportationCard c =
                 new TransportationCard(null,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "BLACK";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = 
                 new TransportationCard(Color.BLACK,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "BLUE";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = 
                 new TransportationCard(Color.BLUE,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "GREEN";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = new 
                 TransportationCard(Color.GREEN,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "ORANGE";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = new 
                 TransportationCard(Color.ORANGE,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "PINK";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = new 
                 TransportationCard(Color.PINK,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "RED";
-        for(int i =0;i<5;i++){
+        for(int i =0;i<=5;i++){
             TransportationCard c = new 
                 TransportationCard(Color.RED,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
@@ -637,7 +678,7 @@ public class Board
         //so add them to the cards pile
 
         // for(Card g: transDeck.cards){
-            // System.out.println((TransportationCard)g);
+        // System.out.println((TransportationCard)g);
         // }
         // System.out.println();
         // for(Card g: destDeck.cards){
@@ -826,22 +867,26 @@ public class Board
         // System.out.println(n);
         // }
         Player p = new Player("player1", 1,Color.red);
-        System.out.println(p);
-        System.out.println(b.destDeck.cards.size());
-        
+        // System.out.println(p);
+        // System.out.println(b.destDeck.cards.size());
+
         //b.drawDestCards(p);
         // System.out.println(b.transDeck.cards.size());
 
         // for (Card c: b.transDeck.cards){
-            // System.out.println((TransportationCard)c);
+        // System.out.println((TransportationCard)c);
         // }
-        
+
         //b.drawTransCard(p);
 
         // for (TransportationCard c: b.faceUps){
-            // System.out.println(c);
+        // System.out.println(c);
         // }
         // System.out.println(b.transDeck.cards.size());
+
+        // for (Player p: b.players){
+        // System.out.println(p);
+        // }
 
     }
 }

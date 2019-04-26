@@ -1,11 +1,11 @@
 Contents of the game:
-	- each start with 5 cards 
+	- each start with 5 cards and 2 dest ticket - done
 	- 1 board map (with each of the destinations and paths) - done
 	- 60 taxis, 15 of each color for each player - done
 	- 44 transportation cards (8 rainbow/taxis, 6 of all the other colors - blue, green, black, pink, red, orange)
-	- 18 Destination Ticket Cards
-	- 1 rule leaflet
-	- 1 score pad
+	- 18 Destination Ticket Cards - done
+	- 1 rule leaflet - who the fuck cares
+	- 1 score pad - see comment above
 
 Object of the Game 
 	- Claiming a route between two adjacent locations on the board 
@@ -15,22 +15,22 @@ Object of the Game
 	- Lose points for each of your dest ticket cards you do not complete by the end
 
 Game Turns
-	- Start with youngest player and proceed clockwise
-	- Everyone plays a turn until the game ends
+	- Start with youngest player and proceed clockwise (honestly who cares about the youngest player thing) 
+	- Everyone plays a turn until the game ends - game end needs to be implemented
 	- Per turn, you must do one (and only one) of the following three actions:
-		- Draw Transportations cards
-		- Claim a Route
-		- Draw Destination Ticket Cards
+		- Draw Transportations cards - done
+		- Claim a Route - done
+		- Draw Destination Ticket Cards - done
 
-Drawing Trans Card
-	- 6 colors: blue, green, black, pink, red, orange
-	- also a taxi (which we have as null)
-	- taxis can substitute for any other card
-	- Action set:
-		- take any card from one of the 5 face up cards, replace that card with a card from the top of the deck
-			- if you take a face up taxi, you can’t take any more cards during the round
-			- you can not take a face up taxi as a second card either
-		- take the face down from the top of the deck
+Drawing Trans Card - done
+	- 6 colors: blue, green, black, pink, red, orange - done
+	- also a taxi (which we have as null) - done
+	- taxis can substitute for any other card - done
+	- Action set: 
+		- take any card from one of the 5 face up cards, replace that card with a card from the top of the deck - done
+			- if you take a face up taxi, you can’t take any more cards during the round - done
+			- you can not take a face up taxi as a second card either - done
+		- take the face down from the top of the deck - done
 		
 	- if at anytime there are 3 taxis in the face up cards, must discard all 5 cards, and replace them with cards from the deck
 	- when the deck is empty, shuffle the discards to make a new deck
