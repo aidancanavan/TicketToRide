@@ -24,6 +24,7 @@ public class TransportationCard extends Card
         this.imagePath = imagePath;
     }   
     
+    @Override
     public String toString(){
         return "Color: " + color + " Is face up: " + isFaceUp + " Image path: " +
         imagePath;

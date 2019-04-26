@@ -36,6 +36,7 @@ public class Node
      * @return a string indicatng the node's name and all of its 
      * connected destinations
      */
+    @Override
     public String toString(){
 
         String output ="City: "+name;

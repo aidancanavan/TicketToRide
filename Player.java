@@ -93,5 +93,14 @@ public class Player
     public int getfinalScore(){
         return 0;
     }
+    
+    /**
+     * To string method for testing purposes
+     * @return information about player
+     */
+    @Override
+    public String toString(){
+        return "Player " + name + " " + value + " " + myColor;        
+    }
 }
 

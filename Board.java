@@ -256,6 +256,110 @@ public class Board
     }
 
     /**
+     * Method used to claim a route for a given player
+     * //NEEDS MORE TESTING
+     * @param p Player who is claiming route
+     * @param locationStart Number of the starting location
+     * @param locationEnd Number of the end location
+     */
+    public void claimRoute(Player p, int locationStart,int locationEnd){
+        Scanner scan = new Scanner(System.in);
+        ArrayList<TransportationCard> inputCards = new ArrayList<TransportationCard>();
+        System.out.print("How many cards are you using to claim a route?");
+        int numCards = scan.nextInt();
+
+        //see if user is using any rainbow cards
+        System.out.print("How many rainbow cards are you using to claim a route?");
+        int numRainbow = scan.nextInt();
+        int count = 0;
+        for (int i =0; i < p.hand.size();i++){
+            if (count == numRainbow) break; //exit loop once proper amount of taxi cards
+            //were selected
+            //check here to see if the current card is the color we are looking for,
+            //if it is, remove it from the player and add it to the cards to check
+            if (p.hand.get(i).color.equals(null)){
+                count++;
+                TransportationCard temp = p.hand.remove(i);
+                inputCards.add(temp);
+            }           
+        }
+        if (count!=numRainbow){
+            System.out.println("You do not have " + numRainbow + " rainbow cards.");
+        }
+        boolean isValidColor=false;
+        Color c = Color.white; //just set to white to instantiate
+        String color; 
+        //ask user what color they are using
+        do {
+            System.out.print("What color cards are you using?");
+            color = scan.next();
+            //blue, green, black, pink, red, orange
+            if (color.equals("red")){
+                c = Color.red;
+                isValidColor=true;
+            }
+            else if (color.equals("blue")){
+                c = Color.blue;
+                isValidColor=true;
+            }
+            else if (color.equals("black")){
+                c = Color.black;
+                isValidColor=true;
+            }
+            else if (color.equals("pink")){
+                c = Color.pink;
+                isValidColor=true;
+            }
+            else if (color.equals("orange")){
+                c = Color.orange;
+                isValidColor=true;
+            }
+            else if (color.equals("green")){
+                c = Color.green;
+                isValidColor=true;
+            }
+            else{
+                System.out.println("Invalid color");
+            }
+        }
+        while (!isValidColor);
+
+        //prompt user for how many colored cards they will be using
+        System.out.print("How many " + color + " cards are you using to claim a route?");
+        int numColor = scan.nextInt();
+        int count1 = 0;
+        for (int i =0; i < p.hand.size();i++){
+            if (count1 == numColor) break; //exit loop once proper amount of colored cards
+            //were selected
+            //check here to see if the current card is the color we are looking for,
+            //if it is, remove it from the player and add it to the cards to check
+            if (p.hand.get(i).color.equals(c)){ 
+                count1++;
+                TransportationCard temp = p.hand.remove(i);
+                inputCards.add(temp);
+            }           
+        }
+        if (count1!=numColor){ //if they don't have the proper number of color cards
+            System.out.println("You do not have " + numColor + " " + color + " cards.");
+        }
+
+        //if the player did not select the proper amount of taxis and colored cards
+        //or they don't have the amount that they asked to select
+        //tell them they did not select the correct amount of cards and move to the next turn
+        if (count + count1 != numCards){
+            System.out.println("You do not have " + numCards + " valid cards.");
+            return;
+        }
+
+        if(!checkPathwayAvailability(p,inputCards, locationStart, locationEnd)){
+            //give the player their cards back
+            p.hand.addAll(inputCards);
+        }
+
+        //otherwise you can claim the path and we are done
+    }
+
+    /**
      * Check to see if a pathway is available to claim
      * @param turn The player who's turn it is
      * @param inputCards The cards used to attempt a claim
@@ -326,13 +430,15 @@ public class Board
         //method must remove not only the pathway from the start node list
         //but also the reverse pathway coming from the end node
     }
-    
+
     /**
      * This lets a player choose cards from the deck  
      * should reveal two cards from top of deck
      * user can add both, and must add 1
      * returned cards are placed at bottom of deck
      * This is a text version for now, gui update later
+     * //TESTED AND WORKS
+     * @param p Player that will be drawing cards
      */
     public void drawDestCards(Player p){
         //draw the two cards from the top 
@@ -340,14 +446,14 @@ public class Board
         if (destDeck.cards.size()==1 && destDeck.discards.isEmpty()){
             p.myDestCards.add(card1); // player has to draw a card if only one left
         }
-        
+
         DestTickCard card2 = (DestTickCard)destDeck.draw();
-        
+
         //reveal the two cards 
         System.out.println("You drew a " + card1 + " and a " + card2);
         System.out.print("Would you like to keep both?");
         Scanner scan = new Scanner(System.in);
-        if(scan.next().equals("Yes")){
+        if(scan.next().equals("yes")){ //user keeps both cards
             p.myDestCards.add(card1);
             p.myDestCards.add(card2);
             System.out.println("You added a " + card1 + " and a " + card2);
@@ -355,40 +461,42 @@ public class Board
         }
         else{
             System.out.print("You must keep at least 1, which one would you like to keep?");
-            if (scan.next().equals("1")){
+            if (scan.next().equals("1")){ //user keeps the first card
                 p.myDestCards.add(card1);
                 System.out.println("You added a " + card1);
-                destDeck.cards.add(0,card2); //add other card back to bottom
+                destDeck.cards.add(0,card2); //add other card back to bottom of deck
                 return;
             }
-            else {
+            else { //user keeps the second card
                 p.myDestCards.add(card2);
                 System.out.println("You added a " + card2);
-                destDeck.cards.add(0,card1);
+                destDeck.cards.add(0,card1); //add other card back to bottom of deck
                 return;
-                
             }
         }       
     }   
-    
+
     /**
      * This is if the player chooses to draw transcards during their turn
+     * Tested and works!
+     * @param p Player that is drawing the transportation card
      * 
      */
     public void drawTransCard(Player p){
         Scanner scan = new Scanner(System.in);
         System.out.println("This is your first draw."); 
         System.out.print("Would you like to draw from the deck or the face up cards?");
-        if (scan.next().equals("deck")){
+        if (scan.next().equals("deck")){ //draw a card from the top of the deck
             TransportationCard card1 = drawFromDeck(p);
             p.hand.add(card1);
             System.out.println("You added a " + card1);
         }
-        else {
+        else { //draw a card from the face up cards
             TransportationCard card1 = drawFromFaceUp(p);
             p.hand.add(card1);
             System.out.println("You added a " + card1);
             if (card1.color.equals(null)){
+                //if player draws a taxi, they can't draw another card
                 System.out.println("You added a taxi, so you cannot draw anymore cards this turn");
                 return;
             }
@@ -405,29 +513,33 @@ public class Board
             p.hand.add(card2);
             System.out.println("You added a " + card2);
         }
-        
+
     }
-    
+
     /**
      * This lets a player draw cards from the deck, just draws from the top of the deck
+     * Tested and works!
+     * @param p Player that is drawing the card
      */
     public TransportationCard drawFromDeck(Player p){
         return (TransportationCard)transDeck.draw();
     }
-    
+
     /**
-     * This lets a player choose cards from the face up cards  
-     * 
+     * This lets a player choose cards from the face up cards 
+     * Tested and works!
+     * @param p Player that is drawing the card
      */
     public TransportationCard drawFromFaceUp(Player p){
         System.out.println("Choose which card you would like to draw (range 0 - 4");
         Scanner scan = new Scanner(System.in);
         int index = scan.nextInt();
-        
+
         TransportationCard card = faceUps.remove(index);   
         faceUps.add((TransportationCard)transDeck.draw());
         return card;
     }
+
     ////////////////////////////////////////////////////////////////////////////////
     /**
      * Simply a method to initialize all the cards for the game
@@ -518,15 +630,19 @@ public class Board
         destDeck.discard(c);
 
         destDeck.shuffleWithDiscards(); //all cards are in the discard pile
+
+        for (int i =0; i <5; i++){ // make 5 cards faceUp
+            faceUps.add((TransportationCard)transDeck.draw());
+        }
         //so add them to the cards pile
 
-        for(Card g: transDeck.cards){
-            System.out.println((TransportationCard)g);
-        }
-        System.out.println();
-        for(Card g: destDeck.cards){
-            System.out.println((DestTickCard)g);
-        }
+        // for(Card g: transDeck.cards){
+            // System.out.println((TransportationCard)g);
+        // }
+        // System.out.println();
+        // for(Card g: destDeck.cards){
+        // System.out.println((DestTickCard)g);
+        // }
 
         dealingStartingHand();
     }
@@ -631,71 +747,71 @@ public class Board
 
     // return false;
     // }
-    
+
     //THIS IS ANOTHER WAY TO CHECK TO SEE IF WE HAVE COMPLETED A DEST TICKET CARD
-     // /**
-     // * Method for traversing the graph to figure out
-     // * which destination cards are completed for each player
-     // * 
-     // * @param p Player
-     // */
+    // /**
+    // * Method for traversing the graph to figure out
+    // * which destination cards are completed for each player
+    // * 
+    // * @param p Player
+    // */
     // protected void traverseDestinations(Player p) 
     // {
-        // for (DestinationCard card : p.destinations) 
-        // {
-            // boolean done = false;
-            // ArrayList<City> reachableCities = new ArrayList<City>();
-            // while (!done) 
-            // {
-                // done = true; 
-                // for (Route route : p.controlledRoutes) 
-                // {
-                    // City city1 = route.twoCities.get(0);
-                    // City city2 = route.twoCities.get(1);
-                    // if(reachableCities.isEmpty())
-                    // {
-                        // if(allCities.get(card.city1).equals(city1) || 
-                        // allCities.get(card.city2).equals(city1)) 
-                        // {
-                            // reachableCities.add(city1);
-                            // done = false;
-                        // }
-                        // else if(allCities.get(card.city1).equals(city2) || 
-                        // allCities.get(card.city2).equals(city2)) 
-                        // {
-                            // reachableCities.add(city2);
-                            // done = false;
-                        // }
-                    // }
-                    // else if(!city1.isCountry && 
-                        // reachableCities.contains(city1) && 
-                        // !reachableCities.contains(city2)) 
-                    // {
-                        // reachableCities.add(city2);
-                        // done = false;
-                    // }
-                    // else if(!city2.isCountry && 
-                        // reachableCities.contains(city2) &&
-                        // !reachableCities.contains(city1)) 
-                    // {
-                        // reachableCities.add(city1);
-                        // done = false;
-                    // }
-                // }
-            // }
-            // //Check if both card cities are reachable to complete card
-            // if(reachableCities.contains(allCities.get(card.city1)) && 
-            // reachableCities.contains(allCities.get(card.city2))) 
-            // {
-                // p.completedDestinations.add(card);
-                // p.numCompletedDest++;
-            // }
-        // }
+    // for (DestinationCard card : p.destinations) 
+    // {
+    // boolean done = false;
+    // ArrayList<City> reachableCities = new ArrayList<City>();
+    // while (!done) 
+    // {
+    // done = true; 
+    // for (Route route : p.controlledRoutes) 
+    // {
+    // City city1 = route.twoCities.get(0);
+    // City city2 = route.twoCities.get(1);
+    // if(reachableCities.isEmpty())
+    // {
+    // if(allCities.get(card.city1).equals(city1) || 
+    // allCities.get(card.city2).equals(city1)) 
+    // {
+    // reachableCities.add(city1);
+    // done = false;
+    // }
+    // else if(allCities.get(card.city1).equals(city2) || 
+    // allCities.get(card.city2).equals(city2)) 
+    // {
+    // reachableCities.add(city2);
+    // done = false;
+    // }
+    // }
+    // else if(!city1.isCountry && 
+    // reachableCities.contains(city1) && 
+    // !reachableCities.contains(city2)) 
+    // {
+    // reachableCities.add(city2);
+    // done = false;
+    // }
+    // else if(!city2.isCountry && 
+    // reachableCities.contains(city2) &&
+    // !reachableCities.contains(city1)) 
+    // {
+    // reachableCities.add(city1);
+    // done = false;
+    // }
+    // }
+    // }
+    // //Check if both card cities are reachable to complete card
+    // if(reachableCities.contains(allCities.get(card.city1)) && 
+    // reachableCities.contains(allCities.get(card.city2))) 
+    // {
+    // p.completedDestinations.add(card);
+    // p.numCompletedDest++;
+    // }
+    // }
 
-        // for(DestinationCard completed : p.completedDestinations) 
-        // {
-            // p.destinations.remove(completed);
-        // }
+    // for(DestinationCard completed : p.completedDestinations) 
+    // {
+    // p.destinations.remove(completed);
+    // }
     // }
 
     /**
@@ -705,10 +821,27 @@ public class Board
      */
     public static void main(String args[]){
         //some tests
-        Board b = new Board(2);
-        for(Node n:b.map){
-            System.out.println(n);
-        }
+        Board b = new Board(4);
+        // for(Node n:b.map){
+        // System.out.println(n);
+        // }
+        Player p = new Player("player1", 1,Color.red);
+        System.out.println(p);
+        System.out.println(b.destDeck.cards.size());
+        
+        //b.drawDestCards(p);
+        // System.out.println(b.transDeck.cards.size());
+
+        // for (Card c: b.transDeck.cards){
+            // System.out.println((TransportationCard)c);
+        // }
+        
+        //b.drawTransCard(p);
+
+        // for (TransportationCard c: b.faceUps){
+            // System.out.println(c);
+        // }
+        // System.out.println(b.transDeck.cards.size());
 
     }
 }
