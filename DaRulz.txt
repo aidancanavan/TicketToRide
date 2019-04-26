@@ -39,7 +39,7 @@ Claiming a Route:
 	- A route is a set of spaces of the same color that links two adjacent locations - no shit
 	- Some locations are connected by Double Routes (two Routes of the same length connecting the same location
 	- A single player cannot claim both routes of a double route - MAYBE, THIS COULD JUST BE WORKED INTO THE BUTTONS, WHERE IF ONE ROUTE IS THEIR COLOR, THEY CAN'T CLAIM THE OTHER ONE NEAR IT
-	- In two-player games, once one Route of a double route is claimed, the other one cannot be claimed by the other player - NEEDS TO BE IMPLEMENTED
+	- In two-player games, once one Route of a double route is claimed, the other one cannot be claimed by the other player - done
 	- To claim a route, you must discard the number of cards from your hand equal to the number of spaces of this route and place a plastic
 	taxi on each of those spaces - done
 	- most routes require a specific set of cards, for example, a blue route must be claimed by discarding blue (or taxi) cards -done

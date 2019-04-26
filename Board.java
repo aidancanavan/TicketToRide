@@ -24,6 +24,8 @@ public class Board
     public ArrayList<Player> players = new ArrayList<Player>();
     public ArrayList<Color> colors = new ArrayList<Color>();
     public ArrayList<Node> map = new ArrayList<Node>();
+    
+    public Player currentPlayer; 
     /**
      * Constructor for board object
      * Takes as input the number of players for the game
@@ -568,7 +570,22 @@ public class Board
                 return;
             }
         }       
-    }   
+    } 
+
+    /**
+     * Starts the game with player 1
+     * 
+     */
+    public void startGame(){
+
+    }
+    /**
+     * Middle of game
+     * 
+     */
+    public void middleGame(){
+        
+    }
 
     /**
      * Checks the end condition for the game, a player has two or fewer taxis
