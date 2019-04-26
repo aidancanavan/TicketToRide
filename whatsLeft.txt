@@ -1,0 +1,43 @@
+Object of the Game 
+- Successfully completing a continuous path of routes between the two Locations listed on your - HARD, NEEDS TO COMPLETED
+- destination ticket(s) - SEE ABOVE
+- Lose points for each of your dest ticket cards you do not complete by the end - NEEDS TO BE IMPLEMENTED
+
+Game Turns - TUNRS THEMSELVES HAVE TO BE IMPLEMENTED
+	- Start with youngest player and proceed clockwise (honestly who cares about the youngest player thing) 
+	- Everyone plays a turn until the game ends - game end needs to be implemented, CONDITION IS IMPLEMENTED, BUT NOT WHAT ACTUALLY HAPPENS WHEN THE GAME ENDS
+	- Per turn, you must do one (and only one) of the following three actions:
+		- Draw Transportations cards - done
+		- Claim a Route - done
+		- Draw Destination Ticket Cards - done
+
+Claiming a Route:
+- A single player cannot claim both routes of a double route - MAYBE, THIS COULD JUST BE WORKED INTO THE BUTTONS, WHERE IF ONE ROUTE IS THEIR COLOR, THEY CAN'T CLAIM THE OTHER ONE NEAR IT
+- you cannot claim more than one route per turn - NOT IMPLEMENTED, BUT THATS BECAUSE TURNS HAVE NOT BEEN IMPLEMENTED
+
+Drawing ticket cards:
+- at the end of the game you score the point value of each ticket card completed - THIS IS NOT DONE, AND WILL BE VERY DIFFICULT
+- to complete a dest ticket card, you must connect the two locations listed on the card by creating a continuous path of routes you have claimed - SEE ABOVE
+- if you cannot, you will lose that many points - SEE ABOVE
+
+Game end and final scoring:
+- When a player has two or fewer taxis left in their supply, each player, including that player, get one last turn - NEEDS TO BE IMPLEMENTED, CONDITION IS WRITTEN, BUT TAKING CARE OF EVERYONE GETTING ONE LAST TURN IS NOT, MAYBE HAVE A SEPARATE METHOD YOU GO INTO CALLED END GAME WHERE EACH PLAYER GETS ONE LAST TURN
+- then the game ends and players calculate the final score using the score pad - NEED TO TAKE CARE OF DEST TICKET SCORING
+- then each player reveals ticket cards and add the value for ones completed, and subtracts value for ones left incomplete - EHH, I GUESS WE CAN DO THIS, BUT IM FINE WITH JUST GIVING EACH PLAYER THEIR SCORE
+
+Playing the game
+	- method must start the game, ask how many players, who wants what color, name etc.
+	- give each player their cards (deal cards method)
+	while game is not over
+		- player 1 turn 
+		- player 2 turn, 
+		- keep going until last player, then loop back to first player
+	
+		- maybe make turn its own object
+			- in a given turn, you can do one of the three things
+			- then it moves to the next turn
+
+	- once game condition is reached, enter the end game method, where each player gets one more turn
+	- then calculate score, and game is done 
+
+	

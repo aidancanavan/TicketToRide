@@ -24,7 +24,7 @@ public class Board
     public ArrayList<Player> players = new ArrayList<Player>();
     public ArrayList<Color> colors = new ArrayList<Color>();
     public ArrayList<Node> map = new ArrayList<Node>();
-    
+
     public Player currentPlayer; 
     /**
      * Constructor for board object
@@ -34,12 +34,13 @@ public class Board
         colors.add(Color.RED);
         colors.add(Color.BLUE);
         colors.add(Color.GREEN);
-        colors.add(Color.YELLOW);
+        colors.add(Color.PINK);
         colors.add(Color.ORANGE);
+        colors.add(Color.BLACK);
 
-        for(int i=0;i<numPlayers;i++){
-            players.add(new Player("PLACEHOLDER "+ i,i,colors.get(i)));
-        }
+        // for(int i=0;i<numPlayers;i++){
+        // players.add(new Player("PLACEHOLDER "+ i,i,colors.get(i)));
+        // }
 
         map.add(new Node("Lincoln Center",false,0,0));//0
         map.add(new Node("Central Park",true,0,0));//1
@@ -579,12 +580,13 @@ public class Board
     public void startGame(){
 
     }
+
     /**
      * Middle of game
      * 
      */
     public void middleGame(){
-        
+
     }
 
     /**
@@ -872,7 +874,7 @@ public class Board
         // System.out.println((DestTickCard)g);
         // }
 
-        dealingStartingHand();
+        //dealingStartingHand();
     }
 
     /**
@@ -893,6 +895,102 @@ public class Board
             }
         }
     }
+
+    /**
+     * Method that starts the game
+     * So far is implemented so users can enter their name, color, and they get their cards
+     */
+    public static void startgame(){
+        System.out.println("The game has started");
+        Scanner scan = new Scanner(System.in);
+        System.out.print("How many players are playing? (2-5)");
+        int numPlayers = scan.nextInt();
+        Board theGame = new Board(numPlayers);
+        for (int i =0; i< numPlayers;i++){
+            System.out.println("Player " + (i+1) + " enter your username: ");
+            String userName = scan.next();
+            // System.out.println("Player " + (i+1) + " what color would you like to be?");
+            // System.out.println("Colors available: " + theGame.printColors()); 
+            // String color = scan.next();
+            // boolean isValidColor = false;
+            // Color c = null;
+            boolean isValidColor = false;
+            Color c = null;
+            do {
+                System.out.println("Player " + (i+1) + " what color would you like to be?");
+                System.out.println("Colors available: " + theGame.printColors()); 
+                String color = scan.next();               
+                if (color.equals("red")&&theGame.colors.contains(Color.RED)){
+                    c = Color.RED;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else if (color.equals("blue")&&theGame.colors.contains(Color.BLUE)){
+                    c = Color.BLUE;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else if (color.equals("black")&&theGame.colors.contains(Color.BLACK)){
+                    c = Color.BLACK;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else if (color.equals("pink")&&theGame.colors.contains(Color.PINK)){
+                    c = Color.PINK;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else if (color.equals("orange")&&theGame.colors.contains(Color.ORANGE)){
+                    c = Color.ORANGE;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else if (color.equals("green")&&theGame.colors.contains(Color.GREEN)){
+                    c = Color.GREEN;
+                    theGame.colors.remove(c);
+                    isValidColor=true;
+                }
+                else{
+                    System.out.println("Invalid color");
+                }
+            } while (!isValidColor);
+
+            theGame.players.add(new Player(userName, i+1, c));
+        }
+
+        theGame.dealingStartingHand(); //deals the starting hand for each player
+
+        System.out.println();
+
+        for (Player p: theGame.players){
+            System.out.println(p);
+        }
+        
+        for (Player p: theGame.players){
+            System.out.println();
+            System.out.println(p.name + "'s cards");
+            for (TransportationCard c: p.hand){
+                System.out.println(c);
+            }
+            for (DestTickCard c: p.myDestCards){
+                System.out.println(c);
+            }
+        }
+
+    }
+
+    /**
+     * Prints colors available to player
+     * 
+     */
+    public String printColors(){
+        String temp = "";
+        for (Color c: colors){
+            temp = temp + c.toString() + " ";
+        }
+        return temp;
+    }
+
     //THIS IS ONE POSSIBLE WAY TO SEE IF A DEST TICK CARD IS COMPLETED 
     // // Prints all paths from
     // // 's' to 'd'
@@ -1049,11 +1147,11 @@ public class Board
      */
     public static void main(String args[]){
         //some tests
-        Board b = new Board(4);
+        //Board b = new Board(4);
         // for(Node n:b.map){
         // System.out.println(n);
         // }
-        Player p = new Player("player1", 1,Color.red);
+        //Player p = new Player("player1", 1,Color.red);
         // System.out.println(p);
         // System.out.println(b.destDeck.cards.size());
 
