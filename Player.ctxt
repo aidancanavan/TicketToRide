@@ -1,6 +1,16 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Creates\ a\ player\ object\ for\ ticket\ to\ ride\n\n\ @author\ Aidan\ Canavan\n\ @version\ 1.0\n
 comment1.params=name\ value\ c
 comment1.target=Player(java.lang.String,\ int,\ java.awt.Color)
-numComments=2
+comment1.text=\n\ Constructor\ for\ Player\ object,\ intitializes\ name,\ value\ and\ color\n\ @param\ name\ The\ players\ name\n\ @param\ value\ The\ turn\ the\ player\ will\ use\ \n\ @param\ c\ Color\ the\ color\ of\ the\ player's\ taxis\n
+comment2.params=
+comment2.target=void\ updateScore()
+comment2.text=\n\ Updates\ the\ score\ for\ a\ player\ based\ on\ ticket\ to\ ride\ rules,\n\ ignores\ failed\ destTicketCards\ (see\ final\ score)\n\ \n
+comment3.params=
+comment3.target=int\ getfinalScore()
+comment3.text=\n\ THIS\ SHOULD\ COMPUTE\ FINAL\ SCORE\n\ NEEDS\ TO\ CHECK\ DEST\ TICKET\ CARDS\ (WORK\ IN\ PROGRESS)\n
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment4.text=\n\ To\ string\ method\ for\ testing\ purposes\n\ @return\ information\ about\ player\n
+numComments=5

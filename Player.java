@@ -16,8 +16,9 @@ public class Player
     public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
     public ArrayList<TransportationCard> hand = new ArrayList<TransportationCard>();
     public ArrayList<DestTickCard> myDestCards = new ArrayList<DestTickCard>();
-    public int score;
+    public int score;    
     public int destCardsCompleted;
+
     /**
      * Constructor for Player object, intitializes name, value and color
      * @param name The players name

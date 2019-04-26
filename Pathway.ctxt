@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=Pathway
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TakenPathway\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Pathway\ object\ for\ ticket\ to\ ride\n\n\ @author\ Paul\ Macfarlane\n\ @version\ 1.0\n
 comment1.params=c\ start\ end\ length
 comment1.target=Pathway(java.awt.Color,\ Node,\ Node,\ int)
+comment1.text=\n\ Constructor\ for\ the\ Pathway\ class\n\ Initializes\ a\ color,\ start\ node,\ end\ node,\ and\ lenth\ of\ the\ path\n\ @param\ c\ Color\ of\ path\n\ @param\ start\ The\ starting\ node\ for\ the\ path\n\ @param\ end\ The\ end\ node\ for\ the\ path\n\ @param\ lenth\ The\ lenght\ of\ the\ path\n
 comment2.params=
 comment2.target=java.lang.String\ toString()
+comment2.text=\n\ Standard\ tostring\ method\n\ @return\ a\ String\ with\ the\ name\ of\ the\ path's\ start,\ end,\ length,\ and\ color\ \n\ \n
 numComments=3
