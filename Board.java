@@ -323,12 +323,20 @@ public class Board
         //connections from Brooklyn
         map.get(14).destinations.
         add(new Pathway(Color.BLUE,map.get(14),map.get(13),3));
-        map.get(14).destinations.
-        add(new Pathway(Color.BLACK,map.get(14),map.get(13),3));
-        map.get(14).destinations.
-        add(new Pathway(Color.RED,map.get(14),map.get(12),3));
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(14).destinations.
+            add(new Pathway(Color.BLACK,map.get(14),map.get(13),3));
+        }
+
+        if (players.size()>2){ // if there are less than 3 players, don't add the double route
+            map.get(14).destinations.
+            add(new Pathway(Color.RED,map.get(14),map.get(12),3));
+        }
+
         map.get(14).destinations.
         add(new Pathway(Color.ORANGE,map.get(14),map.get(12),3));
+
         map.get(14).destinations.
         add(new Pathway(null,map.get(14),map.get(11),3));
 
