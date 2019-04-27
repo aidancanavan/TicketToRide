@@ -28,15 +28,10 @@ Game end and final scoring:
 Playing the game
 	- method must start the game, ask how many players, who wants what color, name etc. - done
 	- give each player their cards (deal cards method) - done
-	while game is not over
-		- player 1 turn 
-		- player 2 turn, 
-		- keep going until last player, then loop back to first player
-	
-		- maybe make turn its own object
+	while game is not over - done
+		- keep going until last player, then loop back to first player - done 
 			- in a given turn, you can do one of the three things
 			- then it moves to the next turn
-
 	- once game condition is reached, enter the end game method, where each player gets one more turn
 	- then calculate score, and game is done 
 

@@ -94,7 +94,7 @@ public class Board
         map.get(2).destinations.
         add(new Pathway(Color.RED,map.get(2),map.get(0),2));
         map.get(2).destinations.
-        add(new Pathway(null,map.get(2),map.get(3),1));
+        add(new Pathway(Color.cyan,map.get(2),map.get(3),1));
         map.get(2).destinations.
         add(new Pathway(Color.GREEN,map.get(2),map.get(5),2));
         map.get(2).destinations.
@@ -113,9 +113,9 @@ public class Board
         map.get(3).destinations.
         add(new Pathway(Color.RED,map.get(3),map.get(1),2));
         map.get(3).destinations.
-        add(new Pathway(null,map.get(3),map.get(2),1));
+        add(new Pathway(Color.cyan,map.get(3),map.get(2),1));
         map.get(3).destinations.
-        add(new Pathway(null,map.get(3),map.get(4),2));
+        add(new Pathway(Color.cyan,map.get(3),map.get(4),2));
 
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(3).destinations.
@@ -128,7 +128,7 @@ public class Board
         map.get(4).destinations.
         add(new Pathway(Color.PINK,map.get(4),map.get(1),3));
         map.get(4).destinations.
-        add(new Pathway(null,map.get(4),map.get(3),2));
+        add(new Pathway(Color.cyan,map.get(4),map.get(3),2));
         map.get(4).destinations.
         add(new Pathway(Color.GREEN,map.get(4),map.get(7),3));
         map.get(4).destinations.
@@ -158,11 +158,11 @@ public class Board
 
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(5).destinations.
-            add(new Pathway(null,map.get(5),map.get(6),2));
+            add(new Pathway(Color.cyan,map.get(5),map.get(6),2));
         }
 
         map.get(5).destinations.
-        add(new Pathway(null,map.get(5),map.get(6),2));
+        add(new Pathway(Color.cyan,map.get(5),map.get(6),2));
 
         //connections from Chelsea
         map.get(6).destinations.
@@ -170,11 +170,11 @@ public class Board
 
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(6).destinations.
-            add(new Pathway(null,map.get(6),map.get(5),2));
+            add(new Pathway(Color.cyan,map.get(6),map.get(5),2));
         }
 
         map.get(6).destinations.
-        add(new Pathway(null,map.get(6),map.get(5),2));
+        add(new Pathway(Color.cyan,map.get(6),map.get(5),2));
 
         map.get(6).destinations.
         add(new Pathway(Color.ORANGE,map.get(6),map.get(7),2));
@@ -213,7 +213,7 @@ public class Board
         map.get(7).destinations.
         add(new Pathway(Color.PINK,map.get(7),map.get(8),2));
         map.get(7).destinations.
-        add(new Pathway(null,map.get(7),map.get(9),2));
+        add(new Pathway(Color.cyan,map.get(7),map.get(9),2));
 
         //connections from Greenwich Village
 
@@ -236,22 +236,22 @@ public class Board
         map.get(8).destinations.
         add(new Pathway(Color.BLUE,map.get(8),map.get(9),2));
         map.get(8).destinations.
-        add(new Pathway(null,map.get(8),map.get(11),2));
+        add(new Pathway(Color.cyan,map.get(8),map.get(11),2));
 
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(8).destinations.
-            add(new Pathway(null,map.get(8),map.get(12),2));
+            add(new Pathway(Color.cyan,map.get(8),map.get(12),2));
         }
 
         map.get(8).destinations.
-        add(new Pathway(null,map.get(8),map.get(12),2));
+        add(new Pathway(Color.cyan,map.get(8),map.get(12),2));
 
         map.get(8).destinations.
         add(new Pathway(Color.ORANGE,map.get(8),map.get(10),2));
 
         //connections from East Village
         map.get(9).destinations.
-        add(new Pathway(null,map.get(9),map.get(7),2));
+        add(new Pathway(Color.cyan,map.get(9),map.get(7),2));
         map.get(9).destinations.
         add(new Pathway(Color.BLACK,map.get(9),map.get(11),1));
         map.get(9).destinations.
@@ -263,13 +263,13 @@ public class Board
         map.get(10).destinations.
         add(new Pathway(Color.ORANGE,map.get(10),map.get(8),2));
         map.get(10).destinations.
-        add(new Pathway(null,map.get(10),map.get(13),2));
+        add(new Pathway(Color.cyan,map.get(10),map.get(13),2));
 
         //connections from Lower East Side
         map.get(11).destinations.
-        add(new Pathway(null,map.get(11),map.get(9),2));
+        add(new Pathway(Color.cyan,map.get(11),map.get(9),2));
         map.get(11).destinations.
-        add(new Pathway(null,map.get(11),map.get(14),3));
+        add(new Pathway(Color.cyan,map.get(11),map.get(14),3));
         map.get(11).destinations.
         add(new Pathway(Color.BLUE,map.get(11),map.get(12),1));
         map.get(11).destinations.
@@ -278,11 +278,11 @@ public class Board
         //connections from Chinatown
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(12).destinations.
-            add(new Pathway(null,map.get(12),map.get(8),2));
+            add(new Pathway(Color.cyan,map.get(12),map.get(8),2));
         }
 
         map.get(12).destinations.
-        add(new Pathway(null,map.get(12),map.get(8),2));
+        add(new Pathway(Color.cyan,map.get(12),map.get(8),2));
 
         map.get(12).destinations.
         add(new Pathway(Color.BLUE,map.get(12),map.get(11),1));
@@ -305,7 +305,7 @@ public class Board
 
         //connections from Wall Street
         map.get(13).destinations.
-        add(new Pathway(null,map.get(13),map.get(10),2));
+        add(new Pathway(Color.cyan,map.get(13),map.get(10),2));
 
         if (players.size()>2){ // if there are less than 3 players, don't add the double route
             map.get(13).destinations.
@@ -341,7 +341,7 @@ public class Board
         add(new Pathway(Color.ORANGE,map.get(14),map.get(12),3));
 
         map.get(14).destinations.
-        add(new Pathway(null,map.get(14),map.get(11),3));
+        add(new Pathway(Color.cyan,map.get(14),map.get(11),3));
 
         initializeAllCards();
         ////////////////////////////////////////////////////////////////////////////////
@@ -374,7 +374,7 @@ public class Board
             //were selected
             //check here to see if the current card is the color we are looking for,
             //if it is, remove it from the player and add it to the cards to check
-            if (p.hand.get(i).color.equals(null)){
+            if (p.hand.get(i).color.equals(Color.cyan)){
                 count++;
                 TransportationCard temp = p.hand.remove(i);
                 inputCards.add(temp);
@@ -477,7 +477,7 @@ public class Board
 
         //makes sure all are the same color, or rainbow
         for(TransportationCard t:inputCards){
-            if(t.color!=null && !c.equals(t.color)){ //if not a taxi and not the color
+            if(t.color!=Color.cyan && !c.equals(t.color)){ //if not a taxi and not the color
                 System.out.println("Cards picked have the wrong color.");
                 return false;
             }
@@ -492,10 +492,10 @@ public class Board
         Node start = map.get(locationStart);
         for(Pathway p:start.destinations){
             //these if statements are complicated because they need to account
-            //for there being two pathways with null color and same 
+            //for there being two pathways with Color.cyan color and same 
             //length with different end nodes
 
-            if((p.color.equals(c) || p.color.equals(null)) //same color as cards, or grey route
+            if((p.color.equals(c) || p.color.equals(Color.cyan)) //same color as cards, or grey route
             && (p.length == length)){
                 if(p.end.name.equals(endNode.name)){
                     System.out.println
@@ -509,7 +509,7 @@ public class Board
                     //destinations is an arraylist of path 
                     start.destinations.remove(p);
                     for(Pathway g:endNode.destinations){
-                        if((g.color.equals(c) || g.color.equals(null)) 
+                        if((g.color.equals(c) || g.color.equals(Color.cyan)) 
                         && (g.length == length)){
                             if(g.end.name.equals(start.name)){
                                 turn.takenPaths.add(p);
@@ -605,8 +605,9 @@ public class Board
     public void endGame(int playerNumber){
         Player p = players.get(playerNumber);
         int i = playerNumber;
+        int numPlayers = players.size();
         Scanner scan = new Scanner(System.in);
-        
+
         System.out.println();
         System.out.println("It is player " + (i+1) + "'s turn.");
         p.displayCards();
@@ -706,7 +707,7 @@ public class Board
             TransportationCard card1 = drawFromFaceUp(p);
             p.hand.add(card1);
             System.out.println("You added a " + card1);
-            if (card1.color.equals(null)){
+            if (card1.color.equals(Color.cyan)){
                 //if player draws a taxi, they can't draw another card
                 System.out.println("You added a taxi, so you cannot draw anymore cards this turn");
                 return;
@@ -752,7 +753,7 @@ public class Board
     public boolean stupidTaxiCondition(){
         int count = 0;
         for (TransportationCard card: faceUps){
-            if (card.color.equals(null)){
+            if (card.color.equals(Color.cyan)){
                 count++;
             }            
         }
@@ -779,22 +780,36 @@ public class Board
         int index =0;
         TransportationCard card = null; //just instantiating outside loop
         do {
-            System.out.println("Choose which card you would like to draw (range 0 - 4");
+            System.out.println("Choose which card you would like to draw (range 0 - 4)");
+            printFaceUps();
             Scanner scan = new Scanner(System.in);
             index = scan.nextInt();
-            if (!faceUps.get(index).color.equals(null)){ //if this is a taxi, you can't draw it, so gotta check that
-                card = faceUps.remove(index);   
-                faceUps.add((TransportationCard)transDeck.draw());
-                if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
-                //where there is an invalid FaceUps deck
+
+            
+            card = faceUps.remove(index);   
+            faceUps.add((TransportationCard)transDeck.draw());
+
+            //if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
+            //where there is an invalid FaceUps deck
+            isTaxi = false;
+            if (!card.color.equals(Color.cyan)){
                 isTaxi = false;
             }
             else {
                 isTaxi=true;
                 System.out.println("You can't pick a taxi as your second card");
+
             }
         } while(isTaxi);       
         return card;
+    }
+
+    public void printFaceUps(){
+        System.out.println("The face Up cards are: ");
+        for (TransportationCard c: faceUps){
+            System.out.println(c);            
+        }
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -803,11 +818,11 @@ public class Board
      * Makes the appropriate amount of each card
      */
     public void initializeAllCards(){
-        //Rainbow Cards, color is null
+        //Rainbow Cards, color is Color.cyan
         String color = "RAINBOW";
         for(int i =0;i<=7;i++){
             TransportationCard c =
-                new TransportationCard(null,"./TRANSCARDS/"+color+".jpg");
+                new TransportationCard(Color.cyan,"./TRANSCARDS/"+color+".jpg");
             transDeck.discard(c);
         }
         color = "BLACK";
@@ -940,7 +955,7 @@ public class Board
             System.out.println("Player " + (i+1) + " enter your username: ");
             String userName = scan.next();
             boolean isValidColor = false;
-            Color c = null;
+            Color c = Color.cyan;
             do {
                 System.out.println("Player " + (i+1) + " what color would you like to be?");
                 System.out.println("Colors available: " + theGame.printColors()); 
