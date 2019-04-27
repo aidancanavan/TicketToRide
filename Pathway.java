@@ -13,6 +13,7 @@ public class Pathway
     public Node end;
     public Node start;
     public int length;
+    boolean isClaimed;
     //public ArrayList<Pathway> takenPaths = new ArrayList<Pathway>();
     /**
      * Constructor for the Pathway class
@@ -27,6 +28,7 @@ public class Pathway
         this.end = end;
         this.start = start;
         this.length = length;
+        isClaimed = false;
     }
     
     /**

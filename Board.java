@@ -600,10 +600,40 @@ public class Board
 
     /**
      * Once the end game condition is triggered each player will get one last turn
-     * 
+     * param player number, the number of the player who's turn it is 
      */
-    public void endGame(){
+    public void endGame(int playerNumber){
+        Player p = players.get(playerNumber);
+        int i = playerNumber;
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.println();
+        System.out.println("It is player " + (i+1) + "'s turn.");
+        p.displayCards();
+        System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
+        String decision = scan.next();
+        if (decision.equals("claim")){
+            System.out.print("What is the number of the start of the route you want to claim?");
+            int start = scan.nextInt();
+            System.out.print("What is the number of the end of the route");
+            int end = scan.nextInt();
+            claimRoute(p,start,end);
+        }
+        else if (decision.equals("drawDest")){
+            drawDestCards(p);
+        }
+        else { //draw trans cards
+            drawTransCard(p);
+        }
 
+        if (i == players.size()-1){
+            i = 0;
+            p = this.players.get(i); // if this is the last player, go back to the first player
+        }
+        else {
+            i++;
+            p = this.players.get(i);
+        }
     }
 
     /**
@@ -1013,7 +1043,7 @@ public class Board
             else { //draw trans cards
                 drawTransCard(p);
             }
-            
+
             if (i == players.size()-1){
                 i = 0;
                 p = this.players.get(i); // if this is the last player, go back to the first player
@@ -1022,6 +1052,7 @@ public class Board
                 i++;
                 p = this.players.get(i);
             }
+            endGame(i);
         }
 
     }
