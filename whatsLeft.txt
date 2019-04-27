@@ -30,7 +30,7 @@ Playing the game
 	- give each player their cards (deal cards method) - done
 	while game is not over - done
 		- keep going until last player, then loop back to first player - done 
-			- in a given turn, you can do one of the three things
+			- in a given turn, you can do one of the three things - two of there
 			- then it moves to the next turn
 	- once game condition is reached, enter the end game method, where each player gets one more turn
 	- then calculate score, and game is done 

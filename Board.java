@@ -608,33 +608,38 @@ public class Board
         int numPlayers = players.size();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println();
-        System.out.println("It is player " + (i+1) + "'s turn.");
-        p.displayCards();
-        System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
-        String decision = scan.next();
-        if (decision.equals("claim")){
-            System.out.print("What is the number of the start of the route you want to claim?");
-            int start = scan.nextInt();
-            System.out.print("What is the number of the end of the route");
-            int end = scan.nextInt();
-            claimRoute(p,start,end);
-        }
-        else if (decision.equals("drawDest")){
-            drawDestCards(p);
-        }
-        else { //draw trans cards
-            drawTransCard(p);
-        }
+        int turns =0;
+        while (turns <numPlayers){
+            System.out.println();
+            System.out.println("It is player " + (i+1) + "'s last turn.");
+            p.displayCards();
+            System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
+            String decision = scan.next();
+            if (decision.equals("claim")){
+                System.out.print("What is the number of the start of the route you want to claim?");
+                int start = scan.nextInt();
+                System.out.print("What is the number of the end of the route");
+                int end = scan.nextInt();
+                claimRoute(p,start,end);
+            }
+            else if (decision.equals("drawDest")){
+                drawDestCards(p);
+            }
+            else { //draw trans cards
+                drawTransCard(p);
+            }
 
-        if (i == players.size()-1){
-            i = 0;
-            p = this.players.get(i); // if this is the last player, go back to the first player
+            if (i == players.size()-1){
+                i = 0;
+                p = this.players.get(i); // if this is the last player, go back to the first player
+            }
+            else {
+                i++;
+                p = this.players.get(i);
+            }
+            turns++;
         }
-        else {
-            i++;
-            p = this.players.get(i);
-        }
+        System.out.println("The game is over!");
     }
 
     /**
@@ -704,7 +709,7 @@ public class Board
             System.out.println("You added a " + card1);
         }
         else { //draw a card from the face up cards
-            TransportationCard card1 = drawFromFaceUp(p);
+            TransportationCard card1 = drawFromFaceUp(p,false);
             p.hand.add(card1);
             System.out.println("You added a " + card1);
             if (card1.color.equals(Color.cyan)){
@@ -721,7 +726,7 @@ public class Board
             System.out.println("You added a " + card2);
         }
         else {
-            TransportationCard card2 = drawFromFaceUp(p);
+            TransportationCard card2 = drawFromFaceUp(p,true);
             p.hand.add(card2);
             System.out.println("You added a " + card2);
         }
@@ -775,32 +780,37 @@ public class Board
      * Tested and works!
      * @param p Player that is drawing the card
      */
-    public TransportationCard drawFromFaceUp(Player p){
+    public TransportationCard drawFromFaceUp(Player p, boolean secondDraw){
         boolean isTaxi = false;
         int index =0;
         TransportationCard card = null; //just instantiating outside loop
         do {
-            System.out.println("Choose which card you would like to draw (range 0 - 4)");
+
             printFaceUps();
+            System.out.println("Choose which card you would like to draw (range 0 - 4)");
             Scanner scan = new Scanner(System.in);
             index = scan.nextInt();
 
-            
-            card = faceUps.remove(index);   
-            faceUps.add((TransportationCard)transDeck.draw());
-
             //if (stupidTaxiCondition()) newFaceUps(); // this take care of the instance
             //where there is an invalid FaceUps deck
+            card = faceUps.get(index);
             isTaxi = false;
-            if (!card.color.equals(Color.cyan)){
+
+            if (!card.color.equals(Color.cyan)&&!secondDraw){
                 isTaxi = false;
+                card = faceUps.remove(index);   
+                faceUps.add((TransportationCard)transDeck.draw());
+            }
+            else if (!secondDraw || !card.color.equals(Color.cyan)){
+                card = faceUps.remove(index);   
+                faceUps.add((TransportationCard)transDeck.draw());
             }
             else {
                 isTaxi=true;
                 System.out.println("You can't pick a taxi as your second card");
 
             }
-        } while(isTaxi);       
+        } while(isTaxi && secondDraw);       
         return card;
     }
 
@@ -1039,7 +1049,7 @@ public class Board
         Player p = this.players.get(0);
         int i =0;
         Scanner scan = new Scanner(System.in);
-        while(!checkEndCondition(p)){
+        while(checkEndCondition(p)){
             System.out.println();
             System.out.println("It is player " + (i+1) + "'s turn.");
             p.displayCards();
@@ -1067,9 +1077,9 @@ public class Board
                 i++;
                 p = this.players.get(i);
             }
-            endGame(i);
+            //endGame(i);
         }
-
+        endGame(i);
     }
 
     //THIS IS ONE POSSIBLE WAY TO SEE IF A DEST TICK CARD IS COMPLETED 
