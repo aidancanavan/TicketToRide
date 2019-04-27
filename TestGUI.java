@@ -61,7 +61,6 @@ public class TestGUI extends JPanel implements MouseListener {
             e.printStackTrace();
         }
 
-       
         //buttongroup contructions
         f.setPreferredSize(new Dimension(1024,1024));
         f.setResizable(false);
@@ -110,7 +109,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton timesSquare = new JButton();
-        timesSquare.setBounds(200,190, 30,30);
+        timesSquare.setBounds(210,190, 30,30);
         timesSquare.setOpaque(true);;
         timesSquare.setContentAreaFilled(true);
         timesSquare.addMouseListener(new MouseAdapter(){
@@ -146,7 +145,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton chelsea = new JButton();
-        chelsea.setBounds(120,415, 30,30);
+        chelsea.setBounds(125,415, 30,30);
         chelsea.setOpaque(true);
         chelsea.setContentAreaFilled(true);
         chelsea.addMouseListener(new MouseAdapter(){
@@ -256,7 +255,7 @@ public class TestGUI extends JPanel implements MouseListener {
         // 775,25, 30,30
         //creating pathbuttons
         JButton linc_Mid = new JButton();
-        linc_Mid.setBounds(760,120,30,30);
+        linc_Mid.setBounds(100,100,30,30);
         linc_Mid.setOpaque(true);
         linc_Mid.setContentAreaFilled(true);
         linc_Mid.setBorderPainted(false);
@@ -280,7 +279,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton linc_Cen = new JButton();
-        linc_Cen.setBounds(152,20,140,30);
+        linc_Cen.setBounds(200,17,30,30);
         linc_Cen.setOpaque(true);;
         linc_Cen.setBorderPainted(false);
         linc_Cen.setContentAreaFilled(true);
@@ -293,7 +292,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton times_Nations = new JButton();
-        times_Nations.setBounds(290,185,145,35);
+        times_Nations.setBounds(350,175,30,30);
         times_Nations.setOpaque(true);;
         times_Nations.setBorderPainted(false);
         times_Nations.setContentAreaFilled(true);
@@ -306,7 +305,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton linc_Times1 = new JButton();
-        linc_Times1.setBounds(290,185,145,35);
+        linc_Times1.setBounds(140,90,30,30);
         linc_Times1.setOpaque(true);;
         linc_Times1.setBorderPainted(false);
         linc_Times1.setContentAreaFilled(true);
@@ -319,7 +318,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton linc_Times2 = new JButton();
-        linc_Times2.setBounds(290,185,145,35);
+        linc_Times2.setBounds(200,130,30,30);
         linc_Times2.setOpaque(true);;
         linc_Times2.setBorderPainted(false);
         linc_Times2.setContentAreaFilled(true);
@@ -332,7 +331,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton brook_Wall1 = new JButton();
-        brook_Wall1.setBounds(152,20,140,30);
+        brook_Wall1.setBounds(480,910,30,30);
         brook_Wall1.setOpaque(true);;
         brook_Wall1.setBorderPainted(false);
         brook_Wall1.setContentAreaFilled(true);
@@ -345,7 +344,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton brook_Wall2 = new JButton();
-        brook_Wall2.setBounds(152,20,140,30);
+        brook_Wall2.setBounds(410,940,30,30);
         brook_Wall2.setOpaque(true);;
         brook_Wall2.setBorderPainted(false);
         brook_Wall2.setContentAreaFilled(true);
@@ -357,21 +356,9 @@ public class TestGUI extends JPanel implements MouseListener {
                 }
             });
 
-        JButton wall_Soho = new JButton();
-        wall_Soho.setBounds(152,20,140,30);
-        wall_Soho.setOpaque(true);;
-        wall_Soho.setBorderPainted(false);
-        wall_Soho.setContentAreaFilled(true);
-        wall_Soho.addMouseListener(new MouseAdapter(){
-                public void mouseClicked(MouseEvent e)
-                {
-                    JOptionPane.showMessageDialog(null,"You've Selected the Wall Street to Soho Route");
-
-                }
-            });
 
         JButton wall_China1 = new JButton();
-        wall_China1.setBounds(152,20,140,30);
+        wall_China1.setBounds(380,850,30,30);
         wall_China1.setOpaque(true);;
         wall_China1.setBorderPainted(false);
         wall_China1.setContentAreaFilled(true);
@@ -384,7 +371,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton wall_China2 = new JButton();
-        wall_China2.setBounds(152,20,140,30);
+        wall_China2.setBounds(360,820,30,30);
         wall_China2.setOpaque(true);;
         wall_China2.setBorderPainted(false);
         wall_China2.setContentAreaFilled(true);
@@ -397,7 +384,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton brook_China1 = new JButton();
-        brook_China1.setBounds(152,20,140,30);
+        brook_China1.setBounds(480,800,30,30);
         brook_China1.setOpaque(true);;
         brook_China1.setBorderPainted(false);
         brook_China1.setContentAreaFilled(true);
@@ -410,7 +397,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton brook_China2 = new JButton();
-        brook_China2.setBounds(152,20,140,30);
+        brook_China2.setBounds(520,860,30,30);
         brook_China2.setOpaque(true);;
         brook_China2.setBorderPainted(false);
         brook_China2.setContentAreaFilled(true);
@@ -423,7 +410,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton brook_lowerEast = new JButton();
-        brook_lowerEast.setBounds(152,20,140,30);
+        brook_lowerEast.setBounds(570,800,30,30);
         brook_lowerEast.setOpaque(true);;
         brook_lowerEast.setBorderPainted(false);
         brook_lowerEast.setContentAreaFilled(true);
@@ -436,7 +423,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton China_lowerEast = new JButton();
-        China_lowerEast.setBounds(152,20,140,30);
+        China_lowerEast.setBounds(450,720,30,30);
         China_lowerEast.setOpaque(true);;
         China_lowerEast.setBorderPainted(false);
         China_lowerEast.setContentAreaFilled(true);
@@ -449,7 +436,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton soho_Green = new JButton();
-        soho_Green.setBounds(152,20,140,30);
+        soho_Green.setBounds(300,650,30,30);
         soho_Green.setOpaque(true);;
         soho_Green.setBorderPainted(false);
         soho_Green.setContentAreaFilled(true);
@@ -462,7 +449,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton lower_Green = new JButton();
-        lower_Green.setBounds(152,20,140,30);
+        lower_Green.setBounds(450,650,30,30);
         lower_Green.setOpaque(true);;
         lower_Green.setBorderPainted(false);
         lower_Green.setContentAreaFilled(true);
@@ -475,7 +462,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton lower_East = new JButton();
-        lower_East.setBounds(152,20,140,30);
+        lower_East.setBounds(520,620,30,30);
         lower_East.setOpaque(true);;
         lower_East.setBorderPainted(false);
         lower_East.setContentAreaFilled(true);
@@ -488,7 +475,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton green_East = new JButton();
-        green_East.setBounds(152,20,140,30);
+        green_East.setBounds(450,568,30,30);
         green_East.setOpaque(true);;
         green_East.setBorderPainted(false);
         green_East.setContentAreaFilled(true);
@@ -501,7 +488,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton china_Green1 = new JButton();
-        china_Green1.setBounds(152,20,140,30);
+        china_Green1.setBounds(360,630,30,30);
         china_Green1.setOpaque(true);;
         china_Green1.setBorderPainted(false);
         china_Green1.setContentAreaFilled(true);
@@ -514,7 +501,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton china_Green2 = new JButton();
-        china_Green2.setBounds(152,20,140,30);
+        china_Green2.setBounds(340,680,30,30);
         china_Green2.setOpaque(true);;
         china_Green2.setBorderPainted(false);
         china_Green2.setContentAreaFilled(true);
@@ -527,7 +514,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton green_Gram1 = new JButton();
-        green_Gram1.setBounds(152,20,140,30);
+        green_Gram1.setBounds(335,530,30,30);
         green_Gram1.setOpaque(true);;
         green_Gram1.setBorderPainted(false);
         green_Gram1.setContentAreaFilled(true);
@@ -540,7 +527,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton green_Gram2 = new JButton();
-        green_Gram2.setBounds(152,20,140,30);
+        green_Gram2.setBounds(365,490,30,30);
         green_Gram2.setOpaque(true);;
         green_Gram2.setBorderPainted(false);
         green_Gram2.setContentAreaFilled(true);
@@ -553,7 +540,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton chelsea_Gram = new JButton();
-        chelsea_Gram.setBounds(152,20,140,30);
+        chelsea_Gram.setBounds(250,415,30,30);
         chelsea_Gram.setOpaque(true);;
         chelsea_Gram.setBorderPainted(false);
         chelsea_Gram.setContentAreaFilled(true);
@@ -566,7 +553,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton east_Gram = new JButton();
-        east_Gram.setBounds(152,20,140,30);
+        east_Gram.setBounds(460,490,30,30);
         east_Gram.setOpaque(true);;
         east_Gram.setBorderPainted(false);
         east_Gram.setContentAreaFilled(true);
@@ -579,7 +566,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton soho_Chelsea = new JButton();
-        soho_Chelsea.setBounds(152,20,140,30);
+        soho_Chelsea.setBounds(175,600,30,30);
         soho_Chelsea.setOpaque(true);;
         soho_Chelsea.setBorderPainted(false);
         soho_Chelsea.setContentAreaFilled(true);
@@ -592,7 +579,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton chelsea_Empire1 = new JButton();
-        chelsea_Empire1.setBounds(152,20,140,30);
+        chelsea_Empire1.setBounds(250,360,30,30);
         chelsea_Empire1.setOpaque(true);;
         chelsea_Empire1.setBorderPainted(false);
         chelsea_Empire1.setContentAreaFilled(true);
@@ -605,7 +592,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton chelsea_Empire2 = new JButton();
-        chelsea_Empire2.setBounds(152,20,140,30);
+        chelsea_Empire2.setBounds(200,350,30,30);
         chelsea_Empire2.setOpaque(true);;
         chelsea_Empire2.setBorderPainted(false);
         chelsea_Empire2.setContentAreaFilled(true);
@@ -617,7 +604,7 @@ public class TestGUI extends JPanel implements MouseListener {
                 }
             }); 
         JButton gram_Empire1 = new JButton();
-        gram_Empire1.setBounds(152,20,140,30);
+        gram_Empire1.setBounds(320,353,30,30);
         gram_Empire1.setOpaque(true);;
         gram_Empire1.setBorderPainted(false);
         gram_Empire1.setContentAreaFilled(true);
@@ -630,7 +617,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton gram_Empire2 = new JButton();
-        gram_Empire2.setBounds(152,20,140,30);
+        gram_Empire2.setBounds(367,353,30,30);
         gram_Empire2.setOpaque(true);;
         gram_Empire2.setBorderPainted(false);
         gram_Empire2.setContentAreaFilled(true);
@@ -643,7 +630,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton united_Empire = new JButton();
-        united_Empire.setBounds(152,20,140,30);
+        united_Empire.setBounds(380,235,30,30);
         united_Empire.setOpaque(true);;
         united_Empire.setBorderPainted(false);
         united_Empire.setContentAreaFilled(true);
@@ -656,7 +643,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton times_Mid = new JButton();
-        times_Mid.setBounds(152,20,140,30);
+        times_Mid.setBounds(150,190, 30,30);
         times_Mid.setOpaque(true);;
         times_Mid.setBorderPainted(false);
         times_Mid.setContentAreaFilled(true);
@@ -669,7 +656,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton green_Chelsea1 = new JButton();
-        green_Chelsea1.setBounds(152,20,140,30);
+        green_Chelsea1.setBounds(280,530,30,30);
         green_Chelsea1.setOpaque(true);;
         green_Chelsea1.setBorderPainted(false);
         green_Chelsea1.setContentAreaFilled(true);
@@ -682,7 +669,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton green_Chelsea2 = new JButton();
-        green_Chelsea2.setBounds(152,20,140,30);
+        green_Chelsea2.setBounds(220,510,30,30);
         green_Chelsea2.setOpaque(true);;
         green_Chelsea2.setBorderPainted(false);
         green_Chelsea2.setContentAreaFilled(true);
@@ -695,7 +682,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton chelsea_Mid = new JButton();
-        chelsea_Mid.setBounds(152,20,140,30);
+        chelsea_Mid.setBounds(110,303,30,30);
         chelsea_Mid.setOpaque(true);;
         chelsea_Mid.setBorderPainted(false);
         chelsea_Mid.setContentAreaFilled(true);
@@ -708,7 +695,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton gram_United = new JButton();
-        gram_United.setBounds(152,20,140,30);
+        gram_United.setBounds(460,250,30,30);
         gram_United.setOpaque(true);;
         gram_United.setBorderPainted(false);
         gram_United.setContentAreaFilled(true);
@@ -721,7 +708,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton central_Times1 = new JButton();
-        central_Times1.setBounds(152,20,140,30);
+        central_Times1.setBounds(230,110,30,30);
         central_Times1.setOpaque(true);;
         central_Times1.setBorderPainted(false);
         central_Times1.setContentAreaFilled(true);
@@ -734,7 +721,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton central_Times2 = new JButton();
-        central_Times2.setBounds(152,20,140,30);
+        central_Times2.setBounds(280,70,30,30);
         central_Times2.setOpaque(true);;
         central_Times2.setBorderPainted(false);
         central_Times2.setContentAreaFilled(true);
@@ -747,7 +734,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton central_United = new JButton();
-        central_United.setBounds(152,20,140,30);
+        central_United.setBounds(400,43,30,30);
         central_United.setOpaque(true);;
         central_United.setBorderPainted(false);
         central_United.setContentAreaFilled(true);
@@ -760,7 +747,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton empire_Times1 = new JButton();
-        empire_Times1.setBounds(152,20,140,30);
+        empire_Times1.setBounds(280,235,30,30);
         empire_Times1.setOpaque(true);;
         empire_Times1.setBorderPainted(false);
         empire_Times1.setContentAreaFilled(true);
@@ -773,7 +760,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton empire_Times2 = new JButton();
-        empire_Times2.setBounds(152,20,140,30);
+        empire_Times2.setBounds(230,235,30,30);
         empire_Times2.setOpaque(true);;
         empire_Times2.setBorderPainted(false);
         empire_Times2.setContentAreaFilled(true);
@@ -786,7 +773,7 @@ public class TestGUI extends JPanel implements MouseListener {
             });
 
         JButton empire_Mid = new JButton();
-        empire_Mid.setBounds(152,20,140,30);
+        empire_Mid.setBounds(190,255,30,30);
         empire_Mid.setOpaque(true);;
         empire_Mid.setBorderPainted(false);
         empire_Mid.setContentAreaFilled(true);
@@ -798,7 +785,19 @@ public class TestGUI extends JPanel implements MouseListener {
                 }
             });
 
-            
+        JButton soho_Wall = new JButton();
+        soho_Wall.setBounds(300,903,30,30);
+        soho_Wall.setOpaque(true);;
+        soho_Wall.setBorderPainted(false);
+        soho_Wall.setContentAreaFilled(true);
+        soho_Wall.addMouseListener(new MouseAdapter(){
+                public void mouseClicked(MouseEvent e)
+                {
+                    JOptionPane.showMessageDialog(null,"You've Selected the Soho to Wall Street Route");
+
+                }
+            });
+
         //add all  dest buttons
         f.add(lincolnCenter);
         f.add(centralPark);
@@ -874,7 +873,7 @@ public class TestGUI extends JPanel implements MouseListener {
         f.add(empire_Times1);
         f.add(empire_Times2);
         f.add(empire_Mid);
-        
+        f.add(soho_Wall);
 
         points.add(linc_Mid);
         points.add(linc_Cen);
@@ -916,6 +915,7 @@ public class TestGUI extends JPanel implements MouseListener {
         points.add(empire_Times1);
         points.add(empire_Times2);
         points.add(empire_Mid);
+        points.add(soho_Wall);
 
         f.pack();
         f.setVisible(true);
