@@ -611,7 +611,8 @@ public class Board
         int turns =0;
         while (turns <numPlayers){
             System.out.println();
-            System.out.println("It is player " + (i+1) + "'s last turn.");
+            System.out.println("It is " + p.name + "'s last turn.");
+            System.out.println(p.name + " has " + p.score + " points.");
             p.displayCards();
             System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
             String decision = scan.next();
@@ -628,7 +629,7 @@ public class Board
             else { //draw trans cards
                 drawTransCard(p);
             }
-
+            p.updateScore();
             if (i == players.size()-1){
                 i = 0;
                 p = this.players.get(i); // if this is the last player, go back to the first player
@@ -640,6 +641,18 @@ public class Board
             turns++;
         }
         System.out.println("The game is over!");
+        printFinalScores();
+    }
+    
+    /**
+     * prints players final scores
+     * 
+     */
+    public void printFinalScores(){
+        for (Player p: players){
+            System.out.println("Final score for " + p.name + ": " + p.getFinalScore());
+            
+        }
     }
 
     /**
@@ -1049,9 +1062,10 @@ public class Board
         Player p = this.players.get(0);
         int i =0;
         Scanner scan = new Scanner(System.in);
-        while(checkEndCondition(p)){
+        while(!checkEndCondition(p)){
             System.out.println();
-            System.out.println("It is player " + (i+1) + "'s turn.");
+            System.out.println("It is " + p.name + "'s turn.");
+            System.out.println(p.name + " has " + p.score + " points.");
             p.displayCards();
             System.out.print("Would you like to draw transcards, dest ticket cards, or  claim a route?");
             String decision = scan.next();
@@ -1068,7 +1082,7 @@ public class Board
             else { //draw trans cards
                 drawTransCard(p);
             }
-
+            p.updateScore();
             if (i == players.size()-1){
                 i = 0;
                 p = this.players.get(i); // if this is the last player, go back to the first player

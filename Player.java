@@ -109,8 +109,8 @@ public class Player
      * THIS SHOULD COMPUTE FINAL SCORE
      * NEEDS TO CHECK DEST TICKET CARDS (WORK IN PROGRESS)
      */
-    public int getfinalScore(){
-        return 0;
+    public int getFinalScore(){
+        return score;
     }
     
     /**
